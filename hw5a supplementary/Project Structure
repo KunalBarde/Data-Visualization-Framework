@@ -1,0 +1,52 @@
+//File structure of our project is represented in this Text File
+src{
+	main
+	{
+		java 
+		{
+			edu.cmu.cs.cs214.rec09
+			{
+				-Main.java
+				framework
+				{
+					core 
+					{
+						-Framework.java
+						-FrameworkImpl.java
+						-DataPlugin.java
+						-DisplayPlugin.java
+						-DataInput.java
+						-DataOutput.java
+						/*Key data-structures
+						go here*/
+					}
+					gui 
+					{
+						-FrameworkGUI.java
+					}
+				}
+				plugin 
+				{
+					-DataPlugin_*.java
+					-DisplayPlugin_*.java
+					/*Plugins go here*/
+				}
+			}
+		}
+		resources
+		{
+			META-INF
+			{
+				services
+				{
+					-framework.core.DataPlugin
+					-framework.core.DisplayPlugin
+					/*Each containing list of curently 
+					possessed plugins*/
+				}
+			}
+		}
+	}
+}
+
+
