@@ -1,0 +1,46 @@
+//File structure of our project is represented in this Text File
+src{
+	main
+	{
+		java 
+		{
+			-Main.java
+			framework
+			{
+				core 
+				{
+					-FrameworkImpl.java
+					-DataPlugin.java
+					-DisplayPlugin.java
+					-DataPoint.java
+					-DisplayDataStructure.java
+					-Column.java
+					-Config.java
+				}
+				gui 
+				{
+					-FrameworkGUI.java
+				}
+			}
+			plugin 
+			{
+				/*All Plugins go here*/
+			}
+		}
+		resources
+		{
+			META-INF
+			{
+				services
+				{
+					-framework.core.DataPlugin
+					-framework.core.DisplayPlugin
+					/*Each containing list of curently 
+					possessed plugins*/
+				}
+			}
+		}
+	}
+}
+
+
