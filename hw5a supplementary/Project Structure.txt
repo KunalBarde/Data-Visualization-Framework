@@ -4,8 +4,8 @@ src{
 	{
 		java 
 		{
-			-Main.java
-			framework
+			-edu.cmu.cs.cs214.hw5.Main.java
+			edu.cmu.cs.cs214.hw5.framework
 			{
 				core 
 				{
@@ -33,8 +33,8 @@ src{
 			{
 				services
 				{
-					-framework.core.DataPlugin
-					-framework.core.DisplayPlugin
+					-edu.cmu.cs.cs214.hw5.framework.core.DataPlugin
+					-edu.cmu.cs.cs214.hw5.framework.core.DisplayPlugin
 					/*Each containing list of curently 
 					possessed plugins*/
 				}
