@@ -3,13 +3,13 @@
 
 # Generated files
 bin/
-build/
+edu.cmu.cs.cs214.hw5.plugins.edu.cmu.cs.cs214.hw5.framework.build/
 *.aux
 *.log
 *.out
 
 # Workspace configuration files
-.settings/
+.edu.cmu.cs.cs214.hw5.plugins.edu.cmu.cs.cs214.hw5.framework.settings/
 .metadata/
 .idea/
 

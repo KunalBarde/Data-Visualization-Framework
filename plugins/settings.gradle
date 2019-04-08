@@ -1,0 +1,4 @@
+rootProject.name = "Plugins"
+include ':framework'
+project(':framework').projectDir = file('../framework')
+

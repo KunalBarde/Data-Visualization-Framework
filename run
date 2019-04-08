@@ -3,7 +3,7 @@
 timeout=600
 ./gradlew check &
 pid1=$!
-(sleep "$timeout"; echo "TIMEOUT after ${timeout}s; build failed"; exit 1) &
+(sleep "$timeout"; echo "TIMEOUT after ${timeout}s; edu.cmu.cs.cs214.hw5.plugins.edu.cmu.cs.cs214.hw5.framework.build failed"; exit 1) &
 pid2=$!
 wait -n
 ret=$?
