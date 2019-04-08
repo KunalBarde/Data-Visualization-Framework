@@ -1,9 +1,12 @@
 package edu.cmu.cs.cs214.hw5.framework.core;
 
 import javax.swing.*;
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 import java.util.ServiceLoader;
+import java.util.TreeMap;
 import java.util.stream.Collectors;
 
 /**
@@ -50,8 +53,14 @@ public class Framework {
      * @param index index of plugin selected by user which maps to our plugin list
      */
     public void runDataPlugin(int index) {
-        List<DataPoint> datapts = this.dataPlugins.get(index).extract();
-        //part where we modify data from list of data entries to complicated map
+        List<DataPoint> dataPointList = this.dataPlugins.get(index).extract();
+        Map<String, Map<String, Map<Integer, BigDecimal>>> tree = new TreeMap<>();
+        for (DataPoint dataPoint : dataPointList) {
+            tree.computeIfAbsent(dataPoint.getState(), k -> new TreeMap<>());
+            tree.get(dataPoint.getState()).computeIfAbsent(dataPoint.getCounty(), k -> new TreeMap<>());
+            tree.get(dataPoint.getState()).get(dataPoint.getCounty()).put(dataPoint.getStartDate(), dataPoint.getValue());
+        }
+        //return tree;
         this.displayDataStructure = null;
     }
 
