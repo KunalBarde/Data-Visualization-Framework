@@ -47,7 +47,7 @@ public class FrameworkGui extends JFrame {
     private class DataPanel extends JPanel{
         JComboBox dataCombo;
         JButton dataRun;
-        int selectedIndex = -1;
+        int selectedIndex = 0;
 
         public DataPanel() {
             String title = "Data Plugins";
@@ -68,7 +68,7 @@ public class FrameworkGui extends JFrame {
             dataRun.addActionListener(
                     (event) -> {
                         if(selectedIndex != -1){
-                            fmWork.runDataPlugin(selectedIndex );
+                            fmWork.runDataPlugin(selectedIndex);
                         }
                     }
             );
