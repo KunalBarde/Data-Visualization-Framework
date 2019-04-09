@@ -1,4 +1,7 @@
-package edu.cmu.cs.cs214.hw5.framework.core;
+package edu.cmu.cs.cs214.hw5.plugins;
+
+import edu.cmu.cs.cs214.hw5.framework.core.DataPlugin;
+import edu.cmu.cs.cs214.hw5.framework.core.DataPoint;
 
 import javax.swing.*;
 import java.io.BufferedReader;
@@ -7,7 +10,6 @@ import java.io.IOException;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
-
 
 /**
  * Plugin for data describing violent crime for a state
@@ -23,6 +25,17 @@ public class CSVDataPlugin implements DataPlugin {
 
     public CSVDataPlugin()
     {
+
+    }
+
+
+    @Override
+
+    public List<DataPoint> extract() {
+
+        /*
+        Pop-up window
+         */
 
         final JFrame parent = new JFrame();
         JButton button = new JButton();
@@ -40,13 +53,10 @@ public class CSVDataPlugin implements DataPlugin {
             }
         });
 
+        /*
+        Parse CSV file
+         */
 
-    }
-
-
-    @Override
-
-    public List<DataPoint> extract() {
         List<DataPoint> dataPoints = new ArrayList<DataPoint>();
         BufferedReader br = null;
 

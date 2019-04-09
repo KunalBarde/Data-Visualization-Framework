@@ -7,26 +7,26 @@ public class DataPoint {
     private Integer startDate;
     private BigDecimal value;
 
-    DataPoint(String state, String county, Integer startDate, BigDecimal value) {
+    public DataPoint(String state, String county, Integer startDate, BigDecimal value) {
         this.state = state;
         this.county = county;
         this.startDate = startDate;
         this.value = value;
     }
 
-    String getState() {
+    public String getState() {
         return state;
     }
 
-    String getCounty() {
+    public String getCounty() {
         return county;
     }
 
-    Integer getStartDate() {
+    public Integer getStartDate() {
         return startDate;
     }
 
-    BigDecimal getValue() {
+    public BigDecimal getValue() {
         return value;
     }
 }
