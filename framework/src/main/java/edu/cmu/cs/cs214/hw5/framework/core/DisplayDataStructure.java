@@ -19,7 +19,7 @@ public interface DisplayDataStructure {
      * @return mapping of states and counties in source data
      */
     Map<String, List<String>> getAvailableKeys();
-
+L
     /**
      * Provides times in which data was collected by source
      * @return list of times (year) of data recordings

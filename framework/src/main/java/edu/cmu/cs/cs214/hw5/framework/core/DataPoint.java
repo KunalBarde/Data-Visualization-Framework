@@ -14,19 +14,19 @@ public class DataPoint {
         this.value = value;
     }
 
-    String getState() {
+    public String getState() {
         return state;
     }
 
-    String getCounty() {
+    public String getCounty() {
         return county;
     }
 
-    Integer getStartDate() {
+    public Integer getStartDate() {
         return startDate;
     }
 
-    BigDecimal getValue() {
+    public BigDecimal getValue() {
         return value;
     }
 }
