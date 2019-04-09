@@ -53,14 +53,17 @@ public class Framework {
      * @param index index of plugin selected by user which maps to our plugin list
      */
     public void runDataPlugin(int index) {
-        List<DataPoint> dataPointList = this.dataPlugins.get(index).extract();
+        DataPlugin thePlugin = this.dataPlugins.get(index);
+        System.out.println(thePlugin.getName());
+        List<DataPoint> dataPointList = thePlugin.extract();
+        if(dataPointList == null) {return;}
         Map<String, Map<String, Map<Integer, BigDecimal>>> tree = new TreeMap<>();
         for (DataPoint dataPoint : dataPointList) {
             tree.computeIfAbsent(dataPoint.getState(), k -> new TreeMap<>());
             tree.get(dataPoint.getState()).computeIfAbsent(dataPoint.getCounty(), k -> new TreeMap<>());
             tree.get(dataPoint.getState()).get(dataPoint.getCounty()).put(dataPoint.getStartDate(), dataPoint.getValue());
         }
-        //return tree;
+        DisplayDataStructure struct = new DisplayDataStructureImpl(tree);
         this.displayDataStructure = null;
     }
 
