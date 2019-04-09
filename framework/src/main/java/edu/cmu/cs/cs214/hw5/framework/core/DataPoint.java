@@ -7,7 +7,7 @@ public class DataPoint {
     private Integer startDate;
     private BigDecimal value;
 
-    DataPoint(String state, String county, Integer startDate, BigDecimal value) {
+    public DataPoint(String state, String county, Integer startDate, BigDecimal value) {
         this.state = state;
         this.county = county;
         this.startDate = startDate;
