@@ -7,10 +7,12 @@ import java.util.List;
 
 public class DataPluginJavy implements DataPlugin {
     public List<DataPoint> extract() {
+
         return null;
     }
 
     public String getName() {
+
         return "Javy Data 1";
     }
 }
