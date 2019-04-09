@@ -73,14 +73,7 @@ class DisplayDataStructureImpl implements DisplayDataStructure {
         return new PData(mapCopy);
     }
 
-    /**
-     * Given our heirarchy datastructure (possibly filtered)
-     * it calculates (Average) (Standard deviation) (Median) (Mode)
-     * (Sum) (Min) (Max)
-     * @param ftree heirarchy datastructure (possibly filtered)
-     * @return labled columns with described operations, where rows correspond to
-     * operations and objects
-     */
+
 
     /**
      * Provides states and plugin can filter
