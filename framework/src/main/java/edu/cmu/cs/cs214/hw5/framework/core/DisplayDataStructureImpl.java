@@ -42,7 +42,7 @@ class DisplayDataStructureImpl implements DisplayDataStructure {
      * @param config configuration object with elements to filter, if any,
      * @return tabular structure (list of columns) calculated data
      */
-    public List<Column> processFilterData(Config config) {
+    public PData processFilterData(Config config) {
         Map<String,List<String>> scToRemove = config.getKeyFilter();
         List<Integer> timeToRemove = config.getTimeFilter();
 
@@ -70,7 +70,7 @@ class DisplayDataStructureImpl implements DisplayDataStructure {
         }
 
         //At this point we have removed all the req
-        return getStatisticalAnalysis(mapCopy);
+        return new PData(mapCopy);
     }
 
     /**
@@ -81,11 +81,6 @@ class DisplayDataStructureImpl implements DisplayDataStructure {
      * @return labled columns with described operations, where rows correspond to
      * operations and objects
      */
-    private List<Column> getStatisticalAnalysis(Map<String, Map<String, Map<Integer, BigDecimal>>> ftree){
-        //create column for states
-        
-        return null;
-    }
 
     /**
      * Provides states and plugin can filter
