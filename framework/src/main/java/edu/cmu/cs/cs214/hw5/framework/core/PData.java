@@ -18,14 +18,11 @@ public class PData {
      * @param state
      * @return
      */
-    public List<STtuple> getStateData(String state){
+    public List<Map<Integer, BigDecimal>> getStateData(String state){
         Map<String, Map<Integer, BigDecimal>> nip = this.internals.get(state);
-        List<STtuple> answer = new ArrayList<>();
+        List<Map<Integer, BigDecimal>> answer = new ArrayList<>();
         for(String county : nip.keySet()) {
-            for(Integer year : nip.get(county).keySet()) {
-                STtuple tmpObj = new STtuple(year, nip.get(county).get(year));
-                answer.add(tmpObj);
-            }
+            answer.add(getCountyData(state,county));
         }
         return answer;
     }
