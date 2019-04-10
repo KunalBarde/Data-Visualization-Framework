@@ -2,7 +2,13 @@ apply plugin: 'java'
 apply plugin: 'application'
 mainClassName = 'edu.cmu.cs.cs214.hw5.framework.Main'
 
+repositories {
+    mavenCentral()
+}
+
 dependencies {
+    compile 'org.apache.poi:poi:4.0.1'
+    compile 'org.apache.poi:poi-ooxml:4.0.1'
     compile project(':framework')
     
     // https://mvnrepository.com/artifact/org.jfree/jfreechart

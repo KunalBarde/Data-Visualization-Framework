@@ -38,6 +38,7 @@ public class FrameworkGui extends JFrame {
         this.add(container);
         this.add(this.msgBoard);
         this.pack();
+        this.setResizable(false);
     }
 
     /**
@@ -56,7 +57,7 @@ public class FrameworkGui extends JFrame {
 
             List<String> d = fmWork.getDataPlugins();
             String[] strings = d.toArray(new String[d.size()]);
-            dataCombo = new JComboBox(strings);
+            dataCombo = new JComboBox<>(strings);
             dataCombo.addActionListener(
                     (event) -> {
                         JComboBox<String> cb = (JComboBox) event.getSource();
@@ -67,13 +68,19 @@ public class FrameworkGui extends JFrame {
             dataRun = new JButton("Run");
             dataRun.addActionListener(
                     (event) -> {
-                        if(selectedIndex != -1){
-                            fmWork.runDataPlugin(selectedIndex);
+                        if(selectedIndex != -1) {
+                            JFrame inputDialog = new JFrame();
+                            String source = JOptionPane.showInputDialog(inputDialog, "Enter Source Path:", null);
+                            if (fmWork.runDataPlugin(selectedIndex, source)) {
+                                msgBoard.setText("Data Load Successful");
+                            } else {
+                                msgBoard.setText("Data Load Failed");
+                            }
                         }
                     }
             );
 
-            this.setLayout(new BoxLayout(this,BoxLayout.Y_AXIS));
+            this.setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
             this.add(dataCombo);
             this.add(dataRun);
         }
@@ -94,7 +101,7 @@ public class FrameworkGui extends JFrame {
             this.setBorder(border);
             List<String> d = fmWork.getDisplayPlugins();
             String[] strings = d.toArray(new String[d.size()]);
-            dispCombo = new JComboBox(strings);
+            dispCombo = new JComboBox<>(strings);
             dispCombo.addActionListener(
                     (event) -> {
                         JComboBox<String> cb = (JComboBox) event.getSource();
@@ -113,7 +120,7 @@ public class FrameworkGui extends JFrame {
                     }
             );
 
-            this.setLayout(new BoxLayout(this,BoxLayout.Y_AXIS));
+            this.setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
             this.add(dispCombo);
             this.add(dispRun);
         }

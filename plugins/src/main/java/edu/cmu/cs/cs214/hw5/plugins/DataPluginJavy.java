@@ -6,11 +6,12 @@ import edu.cmu.cs.cs214.hw5.framework.core.DataPoint;
 import java.util.List;
 
 public class DataPluginJavy implements DataPlugin {
-    public List<DataPoint> extract() {
+    public List<DataPoint> extract(String source) {
         return null;
     }
 
     public String getName() {
+
         return "Javy Data 1";
     }
 }

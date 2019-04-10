@@ -12,7 +12,7 @@ public interface DisplayDataStructure {
      * @param obj configuration object with elements to filter, if any,
      * @return tabular structure (list of columns) calculated data
      */
-    List<Column> processFilterData(Config obj);
+    PData processFilterData(Config obj);
 
     /**
      * Provides states and plugin can filter
