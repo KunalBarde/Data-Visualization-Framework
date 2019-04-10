@@ -17,6 +17,7 @@ public class CoreTester {
     int dispIdx;
     int numDispPlugins;
     DisplayDataStructure dds;
+    final BigDecimal zero = new BigDecimal("0");
     @Before
     public void stubSetUp() {
         fm = new Framework();
@@ -85,9 +86,11 @@ public class CoreTester {
     public void testDisplayStructure() {
         //Getter tests
         Map<String, List<String>> keys = dds.getAvailableKeys();
+        System.out.println(keys);
         assertTrue(arrayEquals(new ArrayList<>(keys.keySet()), new ArrayList<String>(Arrays.asList("FL", "CT", "MA"))));
 
         List<Integer> times = dds.getTimeRanges();
+        System.out.println(times);
         assertEquals(2, times.size());
         assertTrue(arrayEquals(times, new ArrayList<Integer>(Arrays.asList(2001, 2002))));
 
@@ -95,11 +98,20 @@ public class CoreTester {
         String descrp = dds.getValueDescription();
         assertTrue(descrp.equals("label"));
 
-
         //Config testing
         Config cfg1 = new Config(times, keys); //remove everything
         PData set1 = dds.processFilterData(cfg1); //should be empty
+        assertTrue(set1.getStateData("FL").size() == 1);
+        assertEquals(new BigDecimal("1.5"),set1.getStateAvg(keys.keySet().iterator().next()));
+        assertEquals(2,set1.getCountyData("FL", "county").size());
+        assertEquals(new BigDecimal("1.5"),set1.getCountyAvg("FL", "county"));
     }
+
+    @Test
+    public void testMultipleConfig() {
+
+    }
+
 
     //__UTILS__
     private <E> boolean  arrayEquals(List<E> A, List<E> B) {

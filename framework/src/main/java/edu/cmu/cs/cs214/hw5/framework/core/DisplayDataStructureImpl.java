@@ -41,39 +41,37 @@ class DisplayDataStructureImpl implements DisplayDataStructure {
      * Given configuration object with elements to filter, if any,
      * return a tabular structure (list of columns) containing calculated
      * data
-     * @param config configuration object with elements to filter, if any,
-     * @return tabular structure (list of columns) calculated data
+     * @param config configuration object with elements we want to keep, if null we
+     *               keep everything
+     * @return PData datastructure containing filtered data and API to extract stuff from it
      */
     public PData processFilterData(Config config) {
-        Map<String,List<String>> scToRemove = new HashMap<>();
-        List<Integer> timeToRemove = new ArrayList<>();
-        if(config != null) {
-            scToRemove = config.getKeyFilter();
-            timeToRemove = config.getTimeFilter();
+        if(config == null) {
+            return new PData(new TreeMap<>(this.currentData));
         }
+        Map<String,List<String>> scToKeep = new HashMap<>();
+        List<Integer> timesToKeep = new ArrayList<>();
+        scToKeep = config.getKeyFilter();
+        timesToKeep = config.getTimeFilter();
 
-        Map<String, Map<String, Map<Integer, BigDecimal>>> mapCopy = new HashMap<String, Map<String, Map<Integer, BigDecimal>>>(this.currentData);
+        Map<String, Map<String, Map<Integer, BigDecimal>>> mapCopy = new HashMap<String, Map<String, Map<Integer, BigDecimal>>>();
 
-        for(String state : scToRemove.keySet()){
-            if(!mapCopy.containsKey(state)) {continue;}
-            for(String county : scToRemove.get(state)) {
-                mapCopy.get(state).remove(county);
-            }
-            //To remove a state, plugin has to remove all counties within it. Then we delete appropiately
-            //once we detect that
-            if(mapCopy.values().size() == 0){
-                mapCopy.remove(state);
+        for(String state : scToKeep.keySet()){
+            if(mapCopy.containsKey(state)) {continue;}
+            mapCopy.put(state, new TreeMap<>());
+            for(String county : scToKeep.get(state)) {
+                mapCopy.get(state).put(county, new TreeMap<>(this.currentData.get(state).get(county)));
             }
         }
         for(String state : mapCopy.keySet()) {
             for(String county : mapCopy.get(state).keySet()) {
-                for(Integer year : timeToRemove){
-                    mapCopy.get(state).get(county).remove(year);
+                for(Integer year : mapCopy.get(state).get(county).keySet()){
+                    if(!timesToKeep.contains(year)){
+                        mapCopy.get(state).get(county).remove(year);
+                    }
                 }
             }
         }
-
-        //At this point we have removed all the req
         return new PData(mapCopy);
     }
 

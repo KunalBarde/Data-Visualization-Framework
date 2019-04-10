@@ -1,13 +1,16 @@
 package edu.cmu.cs.cs214.hw5.framework.core;
 
 import java.math.BigDecimal;
+import java.math.MathContext;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import com.jidesoft.utils.BigDecimalMathUtils;
 
 public class PData {
     private Map<String, Map<String, Map<Integer, BigDecimal>>> internals;
+    final private BigDecimal zero = new BigDecimal("0");
 
     PData(Map<String, Map<String, Map<Integer, BigDecimal>>> data) {
         this.internals = data;
@@ -33,8 +36,10 @@ public class PData {
      * @return
      */
     public Map<Integer, BigDecimal> getCountyData(String state, String county){
-        Map<String, Map<Integer, BigDecimal>> nip = this.internals.get(state);
-        Map<Integer, BigDecimal> answer = new HashMap<>(this.internals.get(state).get(county));
+        Map<Integer, BigDecimal> answer = new HashMap<>();
+        if(this.internals.get(state) != null && this.internals.get(state).get(county) != null){
+            return new HashMap<>(this.internals.get(state).get(county));
+        }
         return answer;
     }
 
@@ -57,6 +62,7 @@ public class PData {
         return answer;
     }
 
+    //________AVG_________
     /**
      * returns avg for given state
      * @param state state
@@ -64,16 +70,11 @@ public class PData {
      */
     public BigDecimal getStateAvg(String state){
         Map<String, Map<Integer, BigDecimal>> nip = this.internals.get(state);
-        BigDecimal sum = new BigDecimal("0");
-        BigDecimal count = new BigDecimal("0");
-        for(String county : nip.keySet()) {
-            for(Integer year : nip.get(county).keySet()) {
-                sum = sum.add(nip.get(county).get(year));
-                count = count.add(new BigDecimal("1"));
-            }
+        if(nip == null) {
+            return zero;
         }
-        BigDecimal ans = sum.divide(count);
-        return ans;
+        List<BigDecimal> pasta = getStateFlattened(state);
+        return BigDecimalMathUtils.mean(pasta, MathContext.UNLIMITED);
     }
 
     /**
@@ -84,14 +85,11 @@ public class PData {
      */
     public BigDecimal getCountyAvg(String state, String county) {
         Map<String, Map<Integer, BigDecimal>> nip = this.internals.get(state);
-        BigDecimal sum = new BigDecimal("0");
-        BigDecimal count = new BigDecimal("0");
-        for(Integer year : nip.get(county).keySet()) {
-            sum = sum.add(nip.get(county).get(year));
-            count = count.add(new BigDecimal("1"));
+        if(nip == null || nip.get(county) == null) {
+            return zero;
         }
-        BigDecimal ans = sum.divide(count);
-        return ans;
+        List<BigDecimal> pasta = getCountyFlattened(state, county);
+        return BigDecimalMathUtils.mean(pasta,MathContext.UNLIMITED);
     }
 
     /**
@@ -100,30 +98,87 @@ public class PData {
      * @return returns avg for a year across all data available
      */
     public BigDecimal getYearAvg(Integer targetYear){
-        BigDecimal sum = new BigDecimal("0");
-        BigDecimal count = new BigDecimal("0");
+        return BigDecimalMathUtils.mean(getYearFlattened(targetYear), MathContext.UNLIMITED);
+    }
+
+    //________STD__________
+    public BigDecimal getStateStd(String state) {
+        Map<String, Map<Integer, BigDecimal>> nip = this.internals.get(state);
+        if(nip == null) {
+            return zero;
+        }
+        return BigDecimalMathUtils.stddev(getStateFlattened(state), true, MathContext.UNLIMITED);
+    }
+
+    public BigDecimal getCountyStd(String state, String county) {
+        Map<String, Map<Integer, BigDecimal>> nip = this.internals.get(state);
+        if(nip == null || nip.get(county) == null) {
+            return zero;
+        }
+        List<BigDecimal> pasta = getCountyFlattened(state, county);
+        return BigDecimalMathUtils.stddev(pasta,true,MathContext.UNLIMITED);
+    }
+
+    public BigDecimal getYearStd(Integer targetYear){
+        return BigDecimalMathUtils.stddev(getYearFlattened(targetYear), true, MathContext.UNLIMITED);
+    }
+
+    //________SUM___________
+    public BigDecimal getStateSum(String state) {
+        Map<String, Map<Integer, BigDecimal>> nip = this.internals.get(state);
+        if(nip == null) {
+            return zero;
+        }
+        return BigDecimalMathUtils.sum(getStateFlattened(state));
+    }
+
+    public BigDecimal getCountySum(String state, String county) {
+        Map<String, Map<Integer, BigDecimal>> nip = this.internals.get(state);
+        if(nip == null || nip.get(county) == null) {
+            return zero;
+        }
+        List<BigDecimal> pasta = getCountyFlattened(state, county);
+        return BigDecimalMathUtils.sum(pasta);
+    }
+
+    public BigDecimal getYearSum(Integer targetYear){
+        return BigDecimalMathUtils.sum(getYearFlattened(targetYear));
+    }
+
+    //_____________________________UTILS_____________________________
+    private List<BigDecimal> getStateFlattened(String state) {
+        Map<String, Map<Integer, BigDecimal>> nip = this.internals.get(state);
+        List<BigDecimal> pasta = new ArrayList<>();
+        for(String county : nip.keySet()) {
+            for(Integer year : nip.get(county).keySet()) {
+                pasta.add(nip.get(county).get(year));
+            }
+        }
+        return pasta;
+    }
+
+    private List<BigDecimal> getCountyFlattened(String state, String county) {
+        Map<String, Map<Integer, BigDecimal>> nip = this.internals.get(state);
+        List<BigDecimal> pasta = new ArrayList<>();
+        for(Integer year : nip.get(county).keySet()) {
+            pasta.add(nip.get(county).get(year));
+        }
+        return pasta;
+    }
+
+    private List<BigDecimal> getYearFlattened(Integer targetYear) {
+        List<BigDecimal> pasta = new ArrayList<>();
         for(String state : this.internals.keySet()){
             for(String county : this.internals.get(state).keySet()) {
                 for(Integer year : this.internals.get(state).get(county).keySet()) {
                     if(year == targetYear){
-                        sum.add(this.internals.get(state).get(county).get(year));
-                        count = count.add(new BigDecimal("1"));
+                        pasta.add(this.internals.get(state).get(county).get(year));
                     }
                 }
             }
         }
-        BigDecimal ans = sum.divide(count);
-        return ans;
+        return pasta;
     }
-
-    /**
-     * Given our heirarchy datastructure (possibly filtered)
-     * it calculates (Average) (Standard deviation) (Median) (Mode)
-     * (Sum) (Min) (Max)
-     * @param ftree heirarchy datastructure (possibly filtered)
-     * @return labled columns with described operations, where rows correspond to
-     * operations and objects
-     */
 }
 
 
