@@ -59,5 +59,7 @@ public class CoreTester {
     }
 
     @Test
-    public void testSamplePlugin
+    public void testSampleRun() {
+
+    }
 }
