@@ -59,6 +59,7 @@ public class CoreTester {
 
     @Test
     public void testDisplayStructure() {
+        Datapoint
         List<DataPoint> dataPointList =
         Map<String, Map<String, Map<Integer, BigDecimal>>> tree = new TreeMap<>();
         for (DataPoint dataPoint : dataPointList) {

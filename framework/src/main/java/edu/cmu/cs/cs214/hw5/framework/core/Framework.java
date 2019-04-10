@@ -16,6 +16,7 @@ public class Framework {
     private List<DataPlugin> dataPlugins;
     private List<DisplayPlugin> displayPlugins;
     private DisplayDataStructure displayDataStructure;
+    private String dataLabel;
 
     public Framework() {
         ServiceLoader<DataPlugin> dataPins = ServiceLoader.load(DataPlugin.class);
@@ -60,6 +61,7 @@ public class Framework {
         DataPlugin thePlugin = this.dataPlugins.get(index);
 
         List<DataPoint> dataPointList = thePlugin.extract(source);
+        this.dataLabel = thePlugin.valueDescription();
         if (dataPointList == null) {
             return false;
         }
@@ -70,7 +72,7 @@ public class Framework {
             tree.get(dataPoint.getState()).computeIfAbsent(dataPoint.getCounty(), k -> new TreeMap<>());
             tree.get(dataPoint.getState()).get(dataPoint.getCounty()).put(dataPoint.getStartDate(), dataPoint.getValue());
         }
-        DisplayDataStructure struct = new DisplayDataStructureImpl(tree);
+        DisplayDataStructure struct = new DisplayDataStructureImpl(tree, dataLabel);
         this.displayDataStructure = struct;
         return true;
     }

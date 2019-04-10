@@ -6,13 +6,15 @@ class DisplayDataStructureImpl implements DisplayDataStructure {
     private Map<String, Map<String, Map<Integer, BigDecimal>>> currentData;
     private Map<String, List<String>> stringKeys;
     private List<Integer> timeRange;
+    private String dataLabel;
 
     /**
      * Sets up internal datastructures
      * @param tree the heirarchy of membership built by the framework
      */
-    public DisplayDataStructureImpl(Map<String, Map<String, Map<Integer, BigDecimal>>> tree){
+    public DisplayDataStructureImpl(Map<String, Map<String, Map<Integer, BigDecimal>>> tree, String dLabel){
         this.currentData = new HashMap<String, Map<String, Map<Integer, BigDecimal>>>(tree);
+        this.dataLabel = dLabel;
 
         //State -> County mapping
         this.stringKeys = new HashMap<>();
@@ -90,5 +92,9 @@ class DisplayDataStructureImpl implements DisplayDataStructure {
     public List<Integer> getTimeRanges() {
         Collections.sort(this.timeRange);
         return this.timeRange;
+    }
+
+    public String getValueDescription() {
+        return this.dataLabel;
     }
 }

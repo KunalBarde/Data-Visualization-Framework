@@ -6,4 +6,6 @@ public interface DataPlugin {
     List<DataPoint> extract(String source);
 
     String getName();
+
+    String valueDescription();
 }
