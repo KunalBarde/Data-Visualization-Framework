@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="edu.cmu.cs.cs214.hw5.framework.core.CoreTester" tests="5" skipped="0" failures="0" errors="0" timestamp="2019-04-10T21:43:12" hostname="Kunals-MacBook-Pro.local" time="0.574">
+  <properties/>
+  <testcase name="testSourceLoader" classname="edu.cmu.cs.cs214.hw5.framework.core.CoreTester" time="0.018"/>
+  <testcase name="testMultipleConfig" classname="edu.cmu.cs.cs214.hw5.framework.core.CoreTester" time="0.001"/>
+  <testcase name="testDispPluginRunner" classname="edu.cmu.cs.cs214.hw5.framework.core.CoreTester" time="0.546"/>
+  <testcase name="testDataPluginRunner" classname="edu.cmu.cs.cs214.hw5.framework.core.CoreTester" time="0.001"/>
+  <testcase name="testDisplayStructure" classname="edu.cmu.cs.cs214.hw5.framework.core.CoreTester" time="0.006"/>
+  <system-out><![CDATA[edu.cmu.cs.cs214.hw5.framework.test_plugins.TestDataPlugin@4b4467fa
+edu.cmu.cs.cs214.hw5.framework.test_plugins.TestDispPlugin@d5109d5
+[STUB Display Plugin]
+edu.cmu.cs.cs214.hw5.framework.test_plugins.TestDataPlugin@4543939a
+edu.cmu.cs.cs214.hw5.framework.test_plugins.TestDispPlugin@8b30b67
+edu.cmu.cs.cs214.hw5.framework.test_plugins.TestDataPlugin@51b2bdd7
+edu.cmu.cs.cs214.hw5.framework.test_plugins.TestDispPlugin@5436d501
+edu.cmu.cs.cs214.hw5.framework.test_plugins.TestDataPlugin@2dbf5c11
+edu.cmu.cs.cs214.hw5.framework.test_plugins.TestDispPlugin@72758cc8
+edu.cmu.cs.cs214.hw5.framework.test_plugins.TestDataPlugin@5feda9d0
+edu.cmu.cs.cs214.hw5.framework.test_plugins.TestDispPlugin@696d3745
+{CT=[midsex], MA=[corn, herd], FL=[county]}
+[2001, 2002]
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

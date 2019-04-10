@@ -173,6 +173,10 @@ public class MapDisplayPlugin implements DisplayPlugin {
             this.repaint();
         }
 
+        /**
+         * PaintComponent for display
+         * @param g representing graphics
+         */
         @Override
         protected void paintComponent(Graphics g) {
             super.paintComponent(g);
