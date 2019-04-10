@@ -2,6 +2,7 @@ package edu.cmu.cs.cs214.hw5.framework.core;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -34,13 +35,9 @@ public class PData {
      * @param county
      * @return
      */
-    public List<STtuple> getCountyData(String state, String county){
+    public Map<Integer, BigDecimal> getCountyData(String state, String county){
         Map<String, Map<Integer, BigDecimal>> nip = this.internals.get(state);
-        List<STtuple> answer = new ArrayList<>();
-        for(Integer year : nip.get(county).keySet()) {
-            STtuple tmpObj = new STtuple(year, nip.get(county).get(year));
-            answer.add(tmpObj);
-        }
+        Map<Integer, BigDecimal> answer = new HashMap<>(this.internals.get(state).get(county));
         return answer;
     }
 

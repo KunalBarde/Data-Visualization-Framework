@@ -57,6 +57,9 @@ public class FrameworkGui extends JFrame {
             this.setBorder(border);
 
             List<String> d = fmWork.getDataPlugins();
+            if(d == null){
+                return;
+            }
             String[] strings = d.toArray(new String[d.size()]);
             dataCombo = new JComboBox<>(strings);
             dataCombo.addActionListener(
@@ -102,6 +105,9 @@ public class FrameworkGui extends JFrame {
             Border border = BorderFactory.createTitledBorder(title);
             this.setBorder(border);
             List<String> d = fmWork.getDisplayPlugins();
+            if(d == null){
+                return;
+            }
             String[] strings = d.toArray(new String[d.size()]);
             dispCombo = new JComboBox<>(strings);
             dispCombo.addActionListener(
