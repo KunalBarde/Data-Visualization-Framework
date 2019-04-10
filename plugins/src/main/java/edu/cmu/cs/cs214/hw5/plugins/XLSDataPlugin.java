@@ -29,6 +29,7 @@ class XLSDataPlugin implements DataPlugin {
     /**
      * Method that returns a List of DataPoint objects from corresponding to
      * the XLS data source.
+     *
      * @param source String filepath to the excel file.
      * @return List of DataPoint objects
      */
@@ -60,14 +61,17 @@ class XLSDataPlugin implements DataPlugin {
 
     /**
      * Return the value description of the date type.
+     *
      * @return String corresponding to the value description.
      */
+    @Override
     public String valueDescription() {
         return valueDesc;
     }
 
     /**
      * Return the data plugin name.
+     *
      * @return String corresponding to the data plugin name.
      */
     public String getName() {
