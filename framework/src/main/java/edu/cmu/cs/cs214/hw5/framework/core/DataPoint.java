@@ -29,4 +29,9 @@ public class DataPoint {
     public BigDecimal getValue() {
         return value;
     }
+
+    @Override
+    public String toString(){
+        return getState() + " " + getCounty() + " " + getStartDate().toString() + " " + getValue().toString() + "\n";
+    }
 }
