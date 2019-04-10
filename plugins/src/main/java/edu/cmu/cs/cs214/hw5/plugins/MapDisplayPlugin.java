@@ -15,7 +15,9 @@ import java.awt.Graphics;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
+import java.math.BigDecimal;
 import java.util.List;
+import java.util.Map;
 
 /**
  * Plugin that is used to display the data in a map format for the counties
@@ -49,6 +51,7 @@ public class MapDisplayPlugin implements DisplayPlugin {
         pData = displayDataStructure.processFilterData(null);
 
         List<Integer> timeRange = displayDataStructure.getTimeRanges();
+        System.out.println(timeRange);
         slider = new JSlider(JSlider.HORIZONTAL, timeRange.get(0), timeRange.get(timeRange.size() - 1), timeRange.get(0));
         slider.setMajorTickSpacing(YEAR_GAP);
         slider.setMinorTickSpacing(1);
@@ -110,14 +113,62 @@ public class MapDisplayPlugin implements DisplayPlugin {
          * selected by the slider.
          */
         void updatePanel() {
-            middlesex = pData.getCountyData("CT", "Middlesex").get(slider.getValue()).toString() + "%";
-            fairfield = pData.getCountyData("CT", "Fairfield").get(slider.getValue()).toString() + "%";
-            windham = pData.getCountyData("CT", "Windham").get(slider.getValue()).toString() + "%";
-            newHaven = pData.getCountyData("CT", "New Haven").get(slider.getValue()).toString() + "%";
-            tolland = pData.getCountyData("CT", "Tolland").get(slider.getValue()).toString() + "%";
-            newLondon = pData.getCountyData("CT", "New London").get(slider.getValue()).toString() + "%";
-            litchfield = pData.getCountyData("CT", "Litchfield").get(slider.getValue()).toString() + "%";
-            hartford = pData.getCountyData("CT", "Hartford").get(slider.getValue()).toString() + "%";
+            Map<Integer, BigDecimal> midData = pData.getCountyData("CT", "Middlesex");
+            Map<Integer, BigDecimal> fairData = pData.getCountyData("CT", "Fairfield");
+            Map<Integer, BigDecimal> windData = pData.getCountyData("CT", "Windham");
+            Map<Integer, BigDecimal> havData = pData.getCountyData("CT", "New Haven");
+            Map<Integer, BigDecimal> tolData = pData.getCountyData("CT", "Tolland");
+            Map<Integer, BigDecimal> lonData = pData.getCountyData("CT", "New London");
+            Map<Integer, BigDecimal> litchData = pData.getCountyData("CT", "Litchfield");
+            Map<Integer, BigDecimal> hartData = pData.getCountyData("CT", "Hartford");
+
+            if (midData != null && midData.get(slider.getValue())  != null) {
+                middlesex = midData.get(slider.getValue()) .toString() + "%";
+            } else {
+                middlesex = "?%";
+            }
+
+            if (fairData != null && fairData.get(slider.getValue())  != null) {
+                fairfield = fairData.get(slider.getValue()) .toString() + "%";
+            } else {
+                fairfield = "?%";
+            }
+
+            if (windData != null && windData.get(slider.getValue())  != null) {
+                windham = windData.get(slider.getValue()) .toString() + "%";
+            } else {
+                windham = "?%";
+            }
+
+            if (havData != null && havData.get(slider.getValue())  != null) {
+                newHaven = havData.get(slider.getValue()) .toString() + "%";
+            } else {
+                newHaven = "?%";
+            }
+
+            if (tolData != null && tolData.get(slider.getValue())  != null) {
+                tolland = tolData.get(slider.getValue()) .toString() + "%";
+            } else {
+                tolland = "?%";
+            }
+
+            if (lonData != null && lonData.get(slider.getValue())  != null) {
+                newLondon = lonData.get(slider.getValue()) .toString() + "%";
+            } else {
+                newLondon = "?%";
+            }
+
+            if (litchData != null && litchData.get(slider.getValue())  != null) {
+                litchfield = litchData.get(slider.getValue()) .toString() + "%";
+            } else {
+                litchfield = "?%";
+            }
+
+            if (hartData != null && hartData.get(slider.getValue())  != null) {
+                hartford = hartData.get(slider.getValue()) .toString() + "%";
+            } else {
+                hartford = "?%";
+            }
 
             this.repaint();
         }
