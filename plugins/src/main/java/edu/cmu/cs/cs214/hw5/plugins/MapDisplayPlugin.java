@@ -8,6 +8,7 @@ import javax.imageio.ImageIO;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JSlider;
+import javax.swing.SwingConstants;
 import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.Graphics;
@@ -20,7 +21,7 @@ import java.util.List;
  * Plugin that is used to display the data in a map format for the counties
  * of Connecticut.
  */
-class MapDisplayPlugin implements DisplayPlugin {
+public class MapDisplayPlugin implements DisplayPlugin {
     private static final int[] IMAGE_SIZE = {800, 583};
     private static final int YEAR_GAP = 5;
 
@@ -58,7 +59,7 @@ class MapDisplayPlugin implements DisplayPlugin {
         imagePanel = new ImagePanel();
         imagePanel.setPreferredSize(new Dimension(IMAGE_SIZE[0], IMAGE_SIZE[1]));
 
-        JLabel valueDesc = new JLabel(displayDataStructure.getValueDescription());
+        JLabel valueDesc = new JLabel(displayDataStructure.getValueDescription(), SwingConstants.CENTER);
 
         JPanel panel = new JPanel();
         panel.setLayout(new BorderLayout());

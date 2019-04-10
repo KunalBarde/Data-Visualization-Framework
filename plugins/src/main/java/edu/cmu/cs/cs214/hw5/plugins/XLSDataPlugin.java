@@ -22,7 +22,7 @@ import java.util.List;
  * Class that reads data from EXCEL files .xls or .xlsx. Data should be in
  * the format of state, county, year, value, columns.
  */
-class XLSDataPlugin implements DataPlugin {
+public class XLSDataPlugin implements DataPlugin {
     private List<DataPoint> dataPoints;
     private String valueDesc;
 
