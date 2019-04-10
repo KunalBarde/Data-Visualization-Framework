@@ -45,7 +45,10 @@ public class Framework {
      * Returns ordered list of registered display plugins
      */
     public List<String> getDisplayPlugins() {
-        return displayPlugins.stream().map(s -> s.getName()).collect(Collectors.toList());
+        if(this.displayPlugins == null) {
+            return null;
+        }
+        return this.displayPlugins.stream().map(s -> s.getName()).collect(Collectors.toList());
     }
 
     /**
