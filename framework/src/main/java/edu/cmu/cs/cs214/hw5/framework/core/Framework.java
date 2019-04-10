@@ -67,7 +67,7 @@ public class Framework {
             tree.get(dataPoint.getState()).get(dataPoint.getCounty()).put(dataPoint.getStartDate(), dataPoint.getValue());
         }
         DisplayDataStructure struct = new DisplayDataStructureImpl(tree);
-        this.displayDataStructure = null;
+        this.displayDataStructure = struct;
         return true;
     }
 

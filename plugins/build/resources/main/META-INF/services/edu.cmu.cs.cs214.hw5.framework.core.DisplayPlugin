@@ -1,2 +1,6 @@
 edu.cmu.cs.cs214.hw5.plugins.DisplayPluginJavy
+<<<<<<< HEAD
 edu.cmu.cs.cs214.hw5.plugins.MapDisplayPlugin
+=======
+edu.cmu.cs.cs214.hw5.plugins.LineGraphPlugin
+>>>>>>> 548944d664fc3aaa43c8d6ef270c50b3ed41d27d

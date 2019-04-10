@@ -11,6 +11,7 @@ public class DataPluginJavy implements DataPlugin {
     }
 
     public String getName() {
+
         return "Javy Data 1";
     }
 }
