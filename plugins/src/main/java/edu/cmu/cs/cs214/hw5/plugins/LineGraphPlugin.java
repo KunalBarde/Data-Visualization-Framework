@@ -3,8 +3,10 @@ package edu.cmu.cs.cs214.hw5.plugins;
 import edu.cmu.cs.cs214.hw5.framework.core.DisplayDataStructure;
 import edu.cmu.cs.cs214.hw5.framework.core.DisplayPlugin;
 
+import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
+import java.awt.image.BufferedImage;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
@@ -14,6 +16,10 @@ import java.io.*;
 
 
 import edu.cmu.cs.cs214.hw5.framework.core.PData;
+import org.jfree.chart.ChartFactory;
+import org.jfree.chart.ChartUtils;
+import org.jfree.chart.JFreeChart;
+import org.jfree.chart.plot.PlotOrientation;
 import org.jfree.data.category.DefaultCategoryDataset;
 
 
@@ -91,6 +97,8 @@ public class LineGraphPlugin implements DisplayPlugin {
         List<Map<Integer, BigDecimal>> stateData;
         Map<Integer, BigDecimal> countyData;
 
+        String desc = displayDataStructure.getValueDescription();
+
         for(int i = 0; i < statesCounties.length-1; i += 2)
         {
             String state = statesCounties[0];
@@ -101,42 +109,48 @@ public class LineGraphPlugin implements DisplayPlugin {
 
             if(st)
             {
-
+                for(Map<Integer, BigDecimal> mp: stateData)
+                {
+                    for(Map.Entry<Integer, BigDecimal> entry: mp.entrySet())
+                    {
+                        line_chart_dataset.addValue(entry.getValue(), desc,
+                                Integer.toString(entry.getKey()));
+                    }
+                }
+            }else if(cty) {
+                for(Map.Entry<Integer, BigDecimal> entry: countyData.entrySet())
+                {
+                    line_chart_dataset.addValue(entry.getValue(), desc,
+                            Integer.toString(entry.getKey()));
+                }
             }
-
-
-
-
         }
 
-        /*
-        DefaultCategoryDataset line_chart_dataset = new DefaultCategoryDataset();
-        line_chart_dataset.addValue( 15 , "schools" , "1970" );
-        line_chart_dataset.addValue( 30 , "schools" , "1980" );
-        line_chart_dataset.addValue( 60 , "schools" , "1990" );
-        line_chart_dataset.addValue( 120 , "schools" , "2000" );
-        line_chart_dataset.addValue( 240 , "schools" , "2010" );
-        line_chart_dataset.addValue( 300 , "schools" , "2014" );
+        JFreeChart lineChartObject = ChartFactory.createLineChart(desc + " vs. " + "time", "time",
+                desc, line_chart_dataset, PlotOrientation.VERTICAL, true, true, false);
 
-        JFreeChart lineChartObject = ChartFactory.createLineChart(
-                "Schools Vs Years","Year",
-                "Schools Count",
-                line_chart_dataset, PlotOrientation.VERTICAL,
-                true,true,false);
+        int width = 640, height = 480;
 
-        int width = 640;
-        int height = 480;
-        File lineChart = new File( "LineChart.jpeg" );
+        String filename = desc+"LineChart"+".jpg";
+
+        File lineChartFile = new File(filename);
+
+        JPanel jpanel = null;
+
         try {
-            ChartUtils.saveChartAsJPEG(lineChart ,lineChartObject, width ,height);
+            jpanel = new JPanel();
+            ChartUtils.saveChartAsJPEG(lineChartFile ,lineChartObject, width ,height);
+            BufferedImage image = ImageIO.read(lineChartFile);
+            JLabel pic = new JLabel(new ImageIcon(image));
+            jpanel.add(pic);
+            jpanel.repaint();
+
         } catch (IOException e) {
             e.printStackTrace();
         }
 
-         */
 
-
-        return null;
+        return jpanel;
     }
 
 
