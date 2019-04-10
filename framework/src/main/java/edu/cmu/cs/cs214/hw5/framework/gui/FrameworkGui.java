@@ -62,14 +62,17 @@ public class FrameworkGui extends JFrame {
             }
             String[] strings = d.toArray(new String[d.size()]);
             dataCombo = new JComboBox<>(strings);
+            dataCombo.setSelectedIndex(-1);
             dataCombo.addActionListener(
                     (event) -> {
+                        dataRun.setEnabled(true);
                         JComboBox<String> cb = (JComboBox) event.getSource();
                         selectedIndex = cb.getSelectedIndex();
                     }
             );
 
             dataRun = new JButton("Run");
+            dataRun.setEnabled(false);
             dataRun.addActionListener(
                     (event) -> {
                         if(selectedIndex != -1) {
@@ -110,6 +113,7 @@ public class FrameworkGui extends JFrame {
             }
             String[] strings = d.toArray(new String[d.size()]);
             dispCombo = new JComboBox<>(strings);
+            dispCombo.setSelectedIndex(-1);
             dispCombo.addActionListener(
                     (event) -> {
                         JComboBox<String> cb = (JComboBox) event.getSource();
