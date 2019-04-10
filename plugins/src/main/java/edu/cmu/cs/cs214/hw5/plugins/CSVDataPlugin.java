@@ -62,6 +62,10 @@ public class CSVDataPlugin implements DataPlugin {
         return "CSV Reader";
     }
 
+    /**
+     * Function to return y-axis description, description of the data we want to plot vs. time
+     * @return String representing the description
+     */
     @Override
     public String valueDescription() {
         return str;

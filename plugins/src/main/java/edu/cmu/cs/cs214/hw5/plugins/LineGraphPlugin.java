@@ -90,41 +90,45 @@ public class LineGraphPlugin implements DisplayPlugin {
             }
         }
 
-        String delims = "[,]";
-        String[] statesCounties = str.split(delims);
-
         DefaultCategoryDataset line_chart_dataset = new DefaultCategoryDataset();
         List<Map<Integer, BigDecimal>> stateData;
         Map<Integer, BigDecimal> countyData;
 
         String desc = displayDataStructure.getValueDescription();
+        PData dataStructure = displayDataStructure.processFilterData(null);
 
-        for(int i = 0; i < statesCounties.length-1; i += 2)
+        for(Map.Entry<String, List<String>> entry: map.entrySet())
         {
-            String state = statesCounties[0];
-            String county = statesCounties[1];
-            PData dataStructure = displayDataStructure.processFilterData(null);
-            stateData = dataStructure.getStateData(state);
-            countyData = dataStructure.getCountyData(state, county);
+            String state = entry.getKey();
+
+            stateData = dataStructure.getStateData(entry.getKey());
 
             if(st)
             {
                 for(Map<Integer, BigDecimal> mp: stateData)
                 {
-                    for(Map.Entry<Integer, BigDecimal> entry: mp.entrySet())
+                    for(Map.Entry<Integer, BigDecimal> ent: mp.entrySet())
                     {
-                        line_chart_dataset.addValue(entry.getValue(), desc,
-                                Integer.toString(entry.getKey()));
+                        line_chart_dataset.addValue(ent.getValue(), desc,
+                                Integer.toString(ent.getKey()));
                     }
                 }
             }else if(cty) {
-                for(Map.Entry<Integer, BigDecimal> entry: countyData.entrySet())
+                List<String> counties = entry.getValue();
+                for(String ct: counties)
                 {
-                    line_chart_dataset.addValue(entry.getValue(), desc,
-                            Integer.toString(entry.getKey()));
+                    countyData = dataStructure.getCountyData(state, ct);
+                    for(Map.Entry<Integer, BigDecimal> ent: countyData.entrySet())
+                    {
+                        line_chart_dataset.addValue(ent.getValue(), desc, Integer.toString(ent.getKey()));
+                    }
                 }
+
+
             }
         }
+
+
 
         JFreeChart lineChartObject = ChartFactory.createLineChart(desc + " vs. " + "time", "time",
                 desc, line_chart_dataset, PlotOrientation.VERTICAL, true, true, false);
@@ -148,7 +152,6 @@ public class LineGraphPlugin implements DisplayPlugin {
         } catch (IOException e) {
             e.printStackTrace();
         }
-
 
         return jpanel;
     }
