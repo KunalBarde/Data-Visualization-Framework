@@ -3,6 +3,7 @@ package edu.cmu.cs.cs214.hw5.plugins;
 import edu.cmu.cs.cs214.hw5.framework.core.DataPlugin;
 import edu.cmu.cs.cs214.hw5.framework.core.DataPoint;
 
+import javax.swing.*;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.math.BigDecimal;
@@ -25,6 +26,11 @@ public class CSVDataPlugin implements DataPlugin {
      */
     @Override
     public List<DataPoint> extract(String source) {
+
+        JFrame jf = new JFrame();
+        str = JOptionPane.showInputDialog(jf, "Enter Y-Axis Label", null);
+
+
         /*
         Parse CSV file
          */
@@ -58,6 +64,6 @@ public class CSVDataPlugin implements DataPlugin {
 
     @Override
     public String valueDescription() {
-        return null;
+        return str;
     }
 }
