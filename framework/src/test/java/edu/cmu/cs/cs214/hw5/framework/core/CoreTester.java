@@ -11,39 +11,37 @@ import java.util.List;
 import static org.junit.Assert.*;
 
 public class CoreTester {
-
+    Framework fm;
+    int dataIdx;
+    int dispIdx;
     @Before
     public void stubSetUp() {
-        DataPlugin dataStub = new DataPlugin (){
-            @Override
-            public List<DataPoint> extract() {
-                //Test Data
-                return null;
-            }
-
-            @Override
-            public String getName() {
-                return "Data STUB";
-            }
-        };
-
-        DisplayPlugin dispStub = new DisplayPlugin (){
-            @Override
-            public JPanel visualize(DisplayDataStructure displayDataStructure) {
-                return null;
-            }
-
-            @Override
-            public String getName() {
-                return "Display STUB";
-            }
-        };
-
-        Framework fm = new Framework();
+        fm = new Framework();
     }
 
     @Test
-    public void Testy1() {
-        System.out.println("HEYYYY>>>>>>>>>>>>>>>>>>>>>>>>>>>");
+    public void testSourceLoader() {
+        List<String> dataPlugins = fm.getDataPlugins();
+        //After initialization, plugins list isn't null
+        assertNotEquals(null, dataPlugins);
+        //Contains at least 'TestDataPlugin'
+        assertTrue(dataPlugins.size() > 0);
+        assertTrue(dataPlugins.contains("Data STUB"));
+        dataIdx = dataPlugins.indexOf("Data Stub");
+
+        List<String> dispPlugins = fm.getDisplayPlugins();
+        //After initialization, plugins list isn't null
+        assertNotEquals(null, dispPlugins);
+        //Contains at least 'TestDataPlugin'
+        System.out.println(dispPlugins);
+        assertTrue(dispPlugins.size() > 0);
+        assertTrue(dispPlugins.contains("STUB Display Plugin"));
+        dispIdx = dispPlugins.indexOf("STUB Display Plugin");
+    }
+
+    @Test
+    public void testDataPluginRuns() {
+        assertTrue(fm.runDataPlugin(dataIdx, "source"));
+        assertFalse(fm.runDataPlugin(-1, "source"));
     }
 }

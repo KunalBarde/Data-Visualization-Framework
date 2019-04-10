@@ -73,8 +73,6 @@ class DisplayDataStructureImpl implements DisplayDataStructure {
         return new PData(mapCopy);
     }
 
-
-
     /**
      * Provides states and plugin can filter
      * @return mapping of states and counties in source data
@@ -88,6 +86,7 @@ class DisplayDataStructureImpl implements DisplayDataStructure {
      * @return list of times (year) of data recordings
      */
     public List<Integer> getTimeRanges() {
+        Collections.sort(this.timeRange);
         return this.timeRange;
     }
 }
