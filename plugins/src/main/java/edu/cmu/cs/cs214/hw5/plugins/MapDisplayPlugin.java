@@ -17,23 +17,27 @@ import java.util.List;
 
 public class MapDisplayPlugin implements DisplayPlugin {
     private PData pData;
+    private JSlider slider;
+    private ImagePanel imagePanel;
 
     public JPanel visualize(DisplayDataStructure displayDataStructure) {
         pData = displayDataStructure.processFilterData(null);
 
         JPanel panel = new JPanel();
-        JPanel imagePanel = new JPanel();
+        imagePanel = new ImagePanel();
 
         imagePanel.setPreferredSize(new Dimension(800, 583));
         panel.setLayout(new BorderLayout());
         panel.add(imagePanel, BorderLayout.NORTH);
 
         List<Integer> timeRange = displayDataStructure.getTimeRanges();
-        JSlider slider = new JSlider(JSlider.HORIZONTAL, timeRange.get(0), timeRange.get(timeRange.size() - 1), timeRange.get(0));
+        slider = new JSlider(JSlider.HORIZONTAL, timeRange.get(0), timeRange.get(timeRange.size() - 1), timeRange.get(0));
         slider.setMajorTickSpacing(5);
         slider.setMinorTickSpacing(1);
         slider.setPaintTicks(true);
         slider.setPaintLabels(true);
+        slider.addChangeListener((event) -> imagePanel.updatePanel());
+
         panel.add(slider, BorderLayout.SOUTH);
 
         return panel;
@@ -65,14 +69,14 @@ public class MapDisplayPlugin implements DisplayPlugin {
         }
 
         void updatePanel() {
-            middlesex = pData.getCountyData("CT", "Middlesex").get();
-            fairfield = pData.getCountyData("CT", "Fairfield").get();
-            windham = pData.getCountyData("CT", "Windham").get();
-            newHaven = pData.getCountyData("CT", "New Haven").get();
-            tolland = pData.getCountyData("CT", "Tolland").get();
-            newEngland = pData.getCountyData("CT", "New England").get();
-            litchfield = pData.getCountyData("CT", "Litchfield").get();
-            hartford = pData.getCountyData("CT", "Hartford").get();
+            middlesex = pData.getCountyData("CT", "Middlesex").get(slider.getValue()).toString();
+            fairfield = pData.getCountyData("CT", "Fairfield").get(slider.getValue()).toString();
+            windham = pData.getCountyData("CT", "Windham").get(slider.getValue()).toString();
+            newHaven = pData.getCountyData("CT", "New Haven").get(slider.getValue()).toString();
+            tolland = pData.getCountyData("CT", "Tolland").get(slider.getValue()).toString();
+            newEngland = pData.getCountyData("CT", "New England").get(slider.getValue()).toString();
+            litchfield = pData.getCountyData("CT", "Litchfield").get(slider.getValue()).toString();
+            hartford = pData.getCountyData("CT", "Hartford").get(slider.getValue()).toString();
 
             this.repaint();
         }
@@ -82,13 +86,13 @@ public class MapDisplayPlugin implements DisplayPlugin {
             super.paintComponent(g);
             g.drawImage(image, 0, 0, null);
             g.drawString(middlesex, 300, 400);
-            g.drawString(fairfield, 300, 400);
-            g.drawString(newEngland, 300, 400);
-            g.drawString(newHaven, 300, 400);
-            g.drawString(tolland, 300, 400);
-            g.drawString(hartford, 300, 400);
-            g.drawString(windham, 300, 400);
-            g.drawString(litchfield, 300, 400);
+            //g.drawString(fairfield, 300, 400);
+            //g.drawString(newEngland, 300, 400);
+            //g.drawString(newHaven, 300, 400);
+            //g.drawString(tolland, 300, 400);
+            //g.drawString(hartford, 300, 400);
+            //g.drawString(windham, 300, 400);
+            //g.drawString(litchfield, 300, 400);
         }
     }
 }

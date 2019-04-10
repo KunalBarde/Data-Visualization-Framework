@@ -85,14 +85,8 @@ class DisplayDataStructureImpl implements DisplayDataStructure {
      * Provides times in which data was collected by source
      * @return list of times (year) of data recordings
      */
-<<<<<<< HEAD
-    public List<Integer> getTimeRanges() {return null;}
-
-
-=======
     public List<Integer> getTimeRanges() {
         Collections.sort(this.timeRange);
         return this.timeRange;
     }
->>>>>>> bf7a16a9f6004848395ee25bfb6f0d92f0c1879d
 }

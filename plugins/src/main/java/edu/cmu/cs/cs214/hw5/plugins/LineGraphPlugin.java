@@ -25,15 +25,12 @@ import org.jfree.chart.ChartUtils;
  */
 public class LineGraphPlugin implements DisplayPlugin {
 
-<<<<<<< HEAD
     /**
      * Visualize function that returns a JPanel with the graph
      * @param displayDataStructure
      * @return JPanel with the line graph
      */
     @Override
-=======
->>>>>>> bf7a16a9f6004848395ee25bfb6f0d92f0c1879d
     public JPanel visualize(DisplayDataStructure displayDataStructure) {
         Map<String, List<String>> map = displayDataStructure.getAvailableKeys();
 
@@ -116,14 +113,6 @@ public class LineGraphPlugin implements DisplayPlugin {
 
 
     public String getName() {
-<<<<<<< HEAD
         return "Line Graph Tool";
-=======
-        return "Line Graph";
->>>>>>> bf7a16a9f6004848395ee25bfb6f0d92f0c1879d
     }
-
-
-
-
 }
