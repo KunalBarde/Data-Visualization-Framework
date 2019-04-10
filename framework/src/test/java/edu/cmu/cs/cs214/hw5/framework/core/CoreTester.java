@@ -13,7 +13,9 @@ import static org.junit.Assert.*;
 public class CoreTester {
     Framework fm;
     int dataIdx;
+    int numDataPlugins;
     int dispIdx;
+    int numDispPlugins;
     @Before
     public void stubSetUp() {
         fm = new Framework();
@@ -28,6 +30,7 @@ public class CoreTester {
         assertTrue(dataPlugins.size() > 0);
         assertTrue(dataPlugins.contains("Data STUB"));
         dataIdx = dataPlugins.indexOf("Data Stub");
+        numDataPlugins = dataPlugins.size();
 
         List<String> dispPlugins = fm.getDisplayPlugins();
         //After initialization, plugins list isn't null
@@ -37,11 +40,24 @@ public class CoreTester {
         assertTrue(dispPlugins.size() > 0);
         assertTrue(dispPlugins.contains("STUB Display Plugin"));
         dispIdx = dispPlugins.indexOf("STUB Display Plugin");
+        numDispPlugins = dispPlugins.size();
     }
 
     @Test
-    public void testDataPluginRuns() {
+    public void testDataPluginRunner() {
         assertTrue(fm.runDataPlugin(dataIdx, "source"));
+        assertFalse(fm.runDataPlugin(dataIdx, "badsource"));
         assertFalse(fm.runDataPlugin(-1, "source"));
+        assertFalse(fm.runDataPlugin(numDataPlugins+1, "source"));
     }
+
+    @Test
+    public void testDispPluginRunner() {
+        assertNotNull(fm.runDisplayPlugin(dataIdx));
+        assertNull(fm.runDisplayPlugin(-1));
+        assertNull(fm.runDisplayPlugin(numDispPlugins+1));
+    }
+
+    @Test
+    public void testSamplePlugin
 }
