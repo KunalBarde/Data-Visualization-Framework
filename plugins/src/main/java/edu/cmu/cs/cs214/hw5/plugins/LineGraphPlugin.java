@@ -1,5 +1,6 @@
 package edu.cmu.cs.cs214.hw5.plugins;
 
+import com.sun.xml.internal.ws.policy.privateutil.PolicyUtils;
 import edu.cmu.cs.cs214.hw5.framework.core.DisplayDataStructure;
 import edu.cmu.cs.cs214.hw5.framework.core.DisplayPlugin;
 
@@ -12,6 +13,8 @@ import java.util.Map;
 import java.io.*;
 
 
+import edu.cmu.cs.cs214.hw5.framework.core.PData;
+import edu.cmu.cs.cs214.hw5.framework.core.STtuple;
 import org.jfree.chart.ChartFactory;
 import org.jfree.chart.JFreeChart;
 import org.jfree.chart.plot.PlotOrientation;
@@ -25,15 +28,13 @@ import org.jfree.chart.ChartUtils;
  */
 public class LineGraphPlugin implements DisplayPlugin {
 
-<<<<<<< HEAD
     /**
      * Visualize function that returns a JPanel with the graph
      * @param displayDataStructure
      * @return JPanel with the line graph
      */
     @Override
-=======
->>>>>>> bf7a16a9f6004848395ee25bfb6f0d92f0c1879d
+
     public JPanel visualize(DisplayDataStructure displayDataStructure) {
         Map<String, List<String>> map = displayDataStructure.getAvailableKeys();
 
@@ -73,20 +74,53 @@ public class LineGraphPlugin implements DisplayPlugin {
 
 
         String str = JOptionPane.showInputDialog(parent,
-                "Enter state/county pairs separated by comma", null);
+                "What data do you want to show, Enter: state, county, or both", null);
 
+        boolean st = false, cty = false, both = false;
+
+        if(str.equalsIgnoreCase("state"))
+            st = true;
+        else if(str.equalsIgnoreCase("county"))
+            cty = true;
+        else if(str.equalsIgnoreCase("both"))
+            both = true;
+        else {
+            try {
+                throw new IOException("Invalid Input");
+            } catch (IOException e) {
+                System.err.println("Didn't enter state, county, or both");
+                e.printStackTrace();
+            }
+        }
 
         String delims = "[,]";
         String[] statesCounties = str.split(delims);
+
+        DefaultCategoryDataset line_chart_dataset = new DefaultCategoryDataset();
+        List<> stateData;
+        List<STtuple> countyData;
 
         for(int i = 0; i < statesCounties.length-1; i += 2)
         {
             String state = statesCounties[0];
             String county = statesCounties[1];
+            PData dataStructure = displayDataStructure.processFilterData(null);
+            stateData = dataStructure.getStateData(state);
+            countyData = dataStructure.getCountyData(state, county);
+
+            if(st)
+            {
+                for(STtuple tup : stateData)
+                {
+                }
+            }
+
+
+
 
         }
 
-
+        /*
         DefaultCategoryDataset line_chart_dataset = new DefaultCategoryDataset();
         line_chart_dataset.addValue( 15 , "schools" , "1970" );
         line_chart_dataset.addValue( 30 , "schools" , "1980" );
@@ -101,8 +135,8 @@ public class LineGraphPlugin implements DisplayPlugin {
                 line_chart_dataset, PlotOrientation.VERTICAL,
                 true,true,false);
 
-        int width = 640;    /* Width of the image */
-        int height = 480;   /* Height of the image */
+        int width = 640;
+        int height = 480;
         File lineChart = new File( "LineChart.jpeg" );
         try {
             ChartUtils.saveChartAsJPEG(lineChart ,lineChartObject, width ,height);
@@ -110,17 +144,16 @@ public class LineGraphPlugin implements DisplayPlugin {
             e.printStackTrace();
         }
 
+         */
+
 
         return null;
     }
 
 
     public String getName() {
-<<<<<<< HEAD
-        return "Line Graph Tool";
-=======
         return "Line Graph";
->>>>>>> bf7a16a9f6004848395ee25bfb6f0d92f0c1879d
+
     }
 
 
