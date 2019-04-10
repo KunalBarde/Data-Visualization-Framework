@@ -26,5 +26,5 @@ public interface DisplayDataStructure {
      */
     List<Integer> getTimeRanges();
 
-
+    public String getValueDescription();
 }

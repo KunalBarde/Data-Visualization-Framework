@@ -59,8 +59,9 @@ public class CoreTester {
 
     @Test
     public void testDisplayStructure() {
-        Datapoint
-        List<DataPoint> dataPointList =
+        DataPoint sampleA = new DataPoint("state1", "county", 2001, new BigDecimal("0"));
+        DataPoint sampleB = new DataPoint("state", "county", 2001, new BigDecimal("0"));
+        List<DataPoint> dataPointList = null;
         Map<String, Map<String, Map<Integer, BigDecimal>>> tree = new TreeMap<>();
         for (DataPoint dataPoint : dataPointList) {
             tree.computeIfAbsent(dataPoint.getState(), k -> new TreeMap<>());
