@@ -13,6 +13,7 @@ public class FrameworkGui extends JFrame {
     private DataPanel dataPanel;
     private DispPanel dispPanel;
     private JTextArea msgBoard;
+    private JButton dispRun;
 
     //Proprietary Fields
     private Framework fmWork;
@@ -76,8 +77,10 @@ public class FrameworkGui extends JFrame {
                             String source = JOptionPane.showInputDialog(inputDialog, "Enter Source Path:", null);
                             if (fmWork.runDataPlugin(selectedIndex, source)) {
                                 msgBoard.setText("Data Load Successful");
+                                dispRun.setEnabled(true);
                             } else {
                                 msgBoard.setText("Data Load Failed");
+                                dispRun.setEnabled(false);
                             }
                         }
                     }
@@ -95,7 +98,6 @@ public class FrameworkGui extends JFrame {
      */
     private class DispPanel extends JPanel{
         JComboBox dispCombo;
-        JButton dispRun;
         int selectedIndex = -1;
 
         public DispPanel() {
@@ -115,12 +117,14 @@ public class FrameworkGui extends JFrame {
                     }
             );
             dispRun = new JButton("Run");
+            dispRun.setEnabled(false);
             dispRun.addActionListener(
                     (event) -> {
                         if(selectedIndex != -1){
                             JPanel panel = fmWork.runDisplayPlugin(selectedIndex);
                             JFrame frame = new JFrame();
                             frame.add(panel);
+                            frame.pack();
                             frame.setVisible(true);
                         }
                     }
