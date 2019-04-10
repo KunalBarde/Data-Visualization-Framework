@@ -1,2 +1,4 @@
 edu.cmu.cs.cs214.hw5.plugins.DataPluginJavy
 edu.cmu.cs.cs214.hw5.plugins.DataPluginJavy2
+edu.cmu.cs.cs214.hw5.plugins.XLSDataPlugin
+edu.cmu.cs.cs214.hw5.plugins.CSVDataPlugin

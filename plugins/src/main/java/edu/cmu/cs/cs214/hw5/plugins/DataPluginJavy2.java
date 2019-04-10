@@ -6,7 +6,7 @@ package edu.cmu.cs.cs214.hw5.plugins;
         import java.util.List;
 
 public class DataPluginJavy2 implements DataPlugin {
-    public List<DataPoint> extract() {
+    public List<DataPoint> extract(String source) {
         return null;
     }
 

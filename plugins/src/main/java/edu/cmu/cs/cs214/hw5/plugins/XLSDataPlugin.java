@@ -4,22 +4,20 @@ import edu.cmu.cs.cs214.hw5.framework.core.DataPlugin;
 import edu.cmu.cs.cs214.hw5.framework.core.DataPoint;
 
 import org.apache.poi.ss.usermodel.*;
+
 import java.io.File;
-import java.io.IOException;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
-public class DataPluginNeil implements DataPlugin {
-    public List<DataPoint> extract() {
-        List<DataPoint> dataPoints = new ArrayList<>();
+public class XLSDataPlugin implements DataPlugin {
+    private List<DataPoint> dataPoints;
 
-        // GUI
-        String fileName = "";
-
+    public List<DataPoint> extract(String source) {
         try {
-            Workbook workbook = WorkbookFactory.create(new File(fileName));
+            Workbook workbook = WorkbookFactory.create(new File(source));
+            dataPoints = new ArrayList<>();
             Sheet sheet = workbook.getSheetAt(0);
 
             DataFormatter dataFormatter = new DataFormatter();
@@ -34,13 +32,13 @@ public class DataPluginNeil implements DataPlugin {
                 dataPoints.add(new DataPoint(state, county, Integer.parseInt(year), new BigDecimal(value)));
             }
             workbook.close();
-        } catch (IOException e) {
-            e.printStackTrace();
+        } catch (Exception e) {
+            return dataPoints;
         }
         return dataPoints;
     }
 
     public String getName() {
-        return "Neil Data";
+        return "XLS Data Plugin";
     }
 }
