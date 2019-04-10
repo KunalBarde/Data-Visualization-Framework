@@ -19,7 +19,6 @@ public class CSVDataPlugin implements DataPlugin {
     private static String str = null;
     private static final int TWO = 2;
     private static final int THREE = 3;
-    private String str;
 
     /**
      * Function to extract data from the file

@@ -14,4 +14,9 @@ public class DataPluginJavy implements DataPlugin {
 
         return "Javy Data 1";
     }
+
+    @Override
+    public String valueDescription() {
+        return null;
+    }
 }

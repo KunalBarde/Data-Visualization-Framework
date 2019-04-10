@@ -12,7 +12,7 @@ class DisplayDataStructureImpl implements DisplayDataStructure {
      * Sets up internal datastructures
      * @param tree the heirarchy of membership built by the framework
      */
-    public DisplayDataStructureImpl(Map<String, Map<String, Map<Integer, BigDecimal>>> tree, String dLabel){
+    DisplayDataStructureImpl(Map<String, Map<String, Map<Integer, BigDecimal>>> tree, String dLabel){
         this.currentData = new HashMap<String, Map<String, Map<Integer, BigDecimal>>>(tree);
         this.dataLabel = dLabel;
 

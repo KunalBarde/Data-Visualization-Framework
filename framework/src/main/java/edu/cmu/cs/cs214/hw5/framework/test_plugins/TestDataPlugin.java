@@ -20,4 +20,9 @@ public class TestDataPlugin implements DataPlugin {
     public String getName() {
         return "Data STUB";
     }
+
+    @Override
+    public String valueDescription() {
+        return "Value despc";
+    }
 }
