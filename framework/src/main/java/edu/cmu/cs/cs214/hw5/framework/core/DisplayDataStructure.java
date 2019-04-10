@@ -25,4 +25,6 @@ public interface DisplayDataStructure {
      * @return list of times (year) of data recordings
      */
     List<Integer> getTimeRanges();
+
+
 }
