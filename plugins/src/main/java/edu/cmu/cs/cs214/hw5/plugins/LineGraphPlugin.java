@@ -27,21 +27,17 @@ import org.jfree.chart.ChartUtils;
  * @author kunalbarde
  */
 public class LineGraphPlugin implements DisplayPlugin {
-
     /**
      * Visualize function that returns a JPanel with the graph
      * @param displayDataStructure
      * @return JPanel with the line graph
      */
     @Override
-
     public JPanel visualize(DisplayDataStructure displayDataStructure) {
         Map<String, List<String>> map = displayDataStructure.getAvailableKeys();
-
         /*
         Pop-up window
          */
-
         List<String> stateCountyData = new ArrayList<String>();
 
 
@@ -152,11 +148,6 @@ public class LineGraphPlugin implements DisplayPlugin {
 
 
     public String getName() {
-        return "Line Graph";
-
+        return "Line Graph Tool";
     }
-
-
-
-
 }

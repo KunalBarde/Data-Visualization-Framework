@@ -43,9 +43,9 @@ class DisplayDataStructureImpl implements DisplayDataStructure {
      * @return tabular structure (list of columns) calculated data
      */
     public PData processFilterData(Config config) {
+
         Map<String,List<String>> scToRemove = config.getKeyFilter();
         List<Integer> timeToRemove = config.getTimeFilter();
-
 
 
         Map<String, Map<String, Map<Integer, BigDecimal>>> mapCopy = new HashMap<String, Map<String, Map<Integer, BigDecimal>>>(this.currentData);
@@ -73,8 +73,6 @@ class DisplayDataStructureImpl implements DisplayDataStructure {
         return new PData(mapCopy);
     }
 
-
-
     /**
      * Provides states and plugin can filter
      * @return mapping of states and counties in source data
@@ -87,11 +85,8 @@ class DisplayDataStructureImpl implements DisplayDataStructure {
      * Provides times in which data was collected by source
      * @return list of times (year) of data recordings
      */
-    public List<Integer> getTimeRanges() {return null;}
-
-
     public List<Integer> getTimeRanges() {
+        Collections.sort(this.timeRange);
         return this.timeRange;
     }
-
 }

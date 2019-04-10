@@ -45,7 +45,10 @@ public class Framework {
      * Returns ordered list of registered display plugins
      */
     public List<String> getDisplayPlugins() {
-        return displayPlugins.stream().map(s -> s.getName()).collect(Collectors.toList());
+        if(this.displayPlugins == null) {
+            return null;
+        }
+        return this.displayPlugins.stream().map(s -> s.getName()).collect(Collectors.toList());
     }
 
     /**
@@ -53,13 +56,14 @@ public class Framework {
      * @param index index of plugin selected by user which maps to our plugin list
      */
     public boolean runDataPlugin(int index, String source) {
+        if(index < 0 || index >= this.dataPlugins.size()){ return false; }
         DataPlugin thePlugin = this.dataPlugins.get(index);
-        System.out.println(thePlugin.getName());
 
         List<DataPoint> dataPointList = thePlugin.extract(source);
         if (dataPointList == null) {
             return false;
         }
+
         Map<String, Map<String, Map<Integer, BigDecimal>>> tree = new TreeMap<>();
         for (DataPoint dataPoint : dataPointList) {
             tree.computeIfAbsent(dataPoint.getState(), k -> new TreeMap<>());
@@ -76,6 +80,7 @@ public class Framework {
      * @param index index of plugin selected by user which maps to our plugin list
      */
     public JPanel runDisplayPlugin(int index) {
+        if(index < 0 || index >= this.displayPlugins.size()){ return null; }
         JPanel panel = this.displayPlugins.get(index).visualize(this.displayDataStructure);
         return panel;
     }

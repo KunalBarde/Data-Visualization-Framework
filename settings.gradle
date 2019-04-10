@@ -1,1 +1,3 @@
 rootProject.name = "17-214 Team 28"
+include ':framework'
+include ':plugins'
