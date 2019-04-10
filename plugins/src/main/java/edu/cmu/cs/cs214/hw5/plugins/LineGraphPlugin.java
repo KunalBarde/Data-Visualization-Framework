@@ -1,11 +1,11 @@
 package edu.cmu.cs.cs214.hw5.plugins;
 
-import com.sun.xml.internal.ws.policy.privateutil.PolicyUtils;
 import edu.cmu.cs.cs214.hw5.framework.core.DisplayDataStructure;
 import edu.cmu.cs.cs214.hw5.framework.core.DisplayPlugin;
 
 import javax.swing.*;
 import java.awt.*;
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -14,12 +14,7 @@ import java.io.*;
 
 
 import edu.cmu.cs.cs214.hw5.framework.core.PData;
-import edu.cmu.cs.cs214.hw5.framework.core.STtuple;
-import org.jfree.chart.ChartFactory;
-import org.jfree.chart.JFreeChart;
-import org.jfree.chart.plot.PlotOrientation;
 import org.jfree.data.category.DefaultCategoryDataset;
-import org.jfree.chart.ChartUtils;
 
 
 /**
@@ -93,8 +88,8 @@ public class LineGraphPlugin implements DisplayPlugin {
         String[] statesCounties = str.split(delims);
 
         DefaultCategoryDataset line_chart_dataset = new DefaultCategoryDataset();
-        List<> stateData;
-        List<STtuple> countyData;
+        List<Map<Integer, BigDecimal>> stateData;
+        Map<Integer, BigDecimal> countyData;
 
         for(int i = 0; i < statesCounties.length-1; i += 2)
         {
@@ -106,9 +101,7 @@ public class LineGraphPlugin implements DisplayPlugin {
 
             if(st)
             {
-                for(STtuple tup : stateData)
-                {
-                }
+
             }
 
 
