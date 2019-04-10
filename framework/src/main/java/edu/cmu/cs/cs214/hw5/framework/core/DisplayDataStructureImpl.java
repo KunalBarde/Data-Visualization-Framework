@@ -43,10 +43,12 @@ class DisplayDataStructureImpl implements DisplayDataStructure {
      * @return tabular structure (list of columns) calculated data
      */
     public PData processFilterData(Config config) {
-
-        Map<String,List<String>> scToRemove = config.getKeyFilter();
-        List<Integer> timeToRemove = config.getTimeFilter();
-
+        Map<String,List<String>> scToRemove = new HashMap<>();
+        List<Integer> timeToRemove = new ArrayList<>();
+        if(config != null) {
+            scToRemove = config.getKeyFilter();
+            timeToRemove = config.getTimeFilter();
+        }
 
         Map<String, Map<String, Map<Integer, BigDecimal>>> mapCopy = new HashMap<String, Map<String, Map<Integer, BigDecimal>>>(this.currentData);
 

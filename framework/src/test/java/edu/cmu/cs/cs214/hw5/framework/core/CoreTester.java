@@ -4,9 +4,8 @@ import org.junit.Before;
 import org.junit.Test;
 
 import javax.swing.*;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import java.math.BigDecimal;
+import java.util.*;
 
 import static org.junit.Assert.*;
 
@@ -59,7 +58,13 @@ public class CoreTester {
     }
 
     @Test
-    public void testSampleRun() {
-
+    public void testDisplayStructure() {
+        List<DataPoint> dataPointList =
+        Map<String, Map<String, Map<Integer, BigDecimal>>> tree = new TreeMap<>();
+        for (DataPoint dataPoint : dataPointList) {
+            tree.computeIfAbsent(dataPoint.getState(), k -> new TreeMap<>());
+            tree.get(dataPoint.getState()).computeIfAbsent(dataPoint.getCounty(), k -> new TreeMap<>());
+            tree.get(dataPoint.getState()).get(dataPoint.getCounty()).put(dataPoint.getStartDate(), dataPoint.getValue());
+        }
     }
 }
