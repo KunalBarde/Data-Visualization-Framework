@@ -12,25 +12,36 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Plugin for data describing violent crime for a state
+ * Plugin for CSV data files
+ * @author kunalbarde
  */
 
 public class CSVDataPlugin implements DataPlugin {
 
     private static final String COMMA_DELIMETER = ",";
     private static String str = null;
+    private static final int TWO = 2;
+    private static final int THREE = 3;
+
 
 
     private List<DataPoint> data;
 
+    /**
+     * Empty Contructor for the ServiceLoader
+     */
     public CSVDataPlugin()
     {
 
     }
 
 
-    @Override
+    /**
+     * Function to extract data from the file
+     * @return List<DataPoint> representing extracted Data Points
+     */
 
+    @Override
     public List<DataPoint> extract() {
 
         /*
@@ -38,20 +49,12 @@ public class CSVDataPlugin implements DataPlugin {
          */
 
         final JFrame parent = new JFrame();
-        JButton button = new JButton();
 
-        button.setText("CSV Data Plugin");
-        parent.add(button);
         parent.pack();
-        parent.setVisible(true);
+        parent.setVisible(false);
 
-        button.addActionListener(new java.awt.event.ActionListener() {
-            @Override
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                str = JOptionPane.showInputDialog(parent,
-                        "Enter csv file path as a string", null);
-            }
-        });
+        str = JOptionPane.showInputDialog(parent,
+                "Enter csv file path as a string", null);
 
         /*
         Parse CSV file
@@ -65,7 +68,7 @@ public class CSVDataPlugin implements DataPlugin {
             String line;
             while ((line = br.readLine()) != null) {
                 String[] values = line.split(",");
-                DataPoint dataPoint = new DataPoint(values[0], values[1], Integer.parseInt(values[2]), new BigDecimal(values[3]));
+                DataPoint dataPoint = new DataPoint(values[0], values[1], Integer.parseInt(values[TWO]), new BigDecimal(values[THREE]));
                 dataPoints.add(dataPoint);
             }
         } catch (IOException e) {
@@ -74,6 +77,10 @@ public class CSVDataPlugin implements DataPlugin {
         return dataPoints;
     }
 
+    /**
+     * Function to return name of plugin
+     * @return String representing the type of plugin
+     */
     @Override
     public String getName() {
         return "CSV Reader";

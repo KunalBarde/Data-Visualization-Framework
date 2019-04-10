@@ -4,4 +4,12 @@ mainClassName = 'edu.cmu.cs.cs214.hw5.framework.Main'
 
 dependencies {
     compile project(':framework')
+    
+    // https://mvnrepository.com/artifact/org.jfree/jfreechart
+    compile group: 'org.jfree', name: 'jfreechart', version: '1.5.0'
+
+    
+
+
+
 }

@@ -53,4 +53,6 @@ class DisplayDataStructureImpl implements DisplayDataStructure {
      * @return list of times (year) of data recordings
      */
     public List<Integer> getTimeRanges() {return null;}
+
+
 }
