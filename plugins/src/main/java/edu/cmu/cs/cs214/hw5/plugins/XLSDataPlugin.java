@@ -41,4 +41,9 @@ public class XLSDataPlugin implements DataPlugin {
     public String getName() {
         return "XLS Data Plugin";
     }
+
+    @Override
+    public String valueDescription() {
+        return null;
+    }
 }

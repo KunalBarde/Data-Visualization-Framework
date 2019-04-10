@@ -55,4 +55,9 @@ public class CSVDataPlugin implements DataPlugin {
     public String getName() {
         return "CSV Reader";
     }
+
+    @Override
+    public String valueDescription() {
+        return null;
+    }
 }
