@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="edu.cmu.cs.cs214.hw5.framework.core.CoreTester" tests="1" skipped="0" failures="0" errors="0" timestamp="2019-04-09T21:59:53" hostname="DESKTOP-0KBOTF12" time="0.007">
-  <properties/>
-  <testcase name="testBoard" classname="edu.cmu.cs.cs214.hw5.framework.core.CoreTester" time="0.007"/>
-  <system-out><![CDATA[HEYYYY>>>>>>>>>>>>>>>>>>>>>>>>>>>
-]]></system-out>
-  <system-err><![CDATA[]]></system-err>
-</testsuite>
