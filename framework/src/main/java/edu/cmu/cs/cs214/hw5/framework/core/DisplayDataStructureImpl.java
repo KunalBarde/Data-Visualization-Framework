@@ -45,7 +45,7 @@ class DisplayDataStructureImpl implements DisplayDataStructure {
      *               keep everything
      * @return PData datastructure containing filtered data and API to extract stuff from it
      */
-    public PData processFilterData(Config config) {
+    public synchronized PData processFilterData(Config config) {
         if(config == null) {
             return new PData(new TreeMap<>(this.currentData));
         }
@@ -58,17 +58,24 @@ class DisplayDataStructureImpl implements DisplayDataStructure {
 
         for(String state : scToKeep.keySet()){
             if(mapCopy.containsKey(state)) {continue;}
-            mapCopy.put(state, new TreeMap<>());
             for(String county : scToKeep.get(state)) {
+                if(mapCopy.get(state) == null) {
+                    mapCopy.put(state, new TreeMap<>());
+                }
                 mapCopy.get(state).put(county, new TreeMap<>(this.currentData.get(state).get(county)));
             }
         }
         for(String state : mapCopy.keySet()) {
-            for(String county : mapCopy.get(state).keySet()) {
-                for(Integer year : mapCopy.get(state).get(county).keySet()){
+            Set<String> counties = new HashSet(mapCopy.get(state).keySet());
+            for(String county : counties) {
+                Set<Integer> years = new HashSet<Integer>(mapCopy.get(state).get(county).keySet());
+                for(Integer year : years){
                     if(!timesToKeep.contains(year)){
                         mapCopy.get(state).get(county).remove(year);
                     }
+                }
+                if(mapCopy.get(state).get(county).keySet().size() == 0) {
+                    mapCopy.get(state).remove(county);
                 }
             }
         }

@@ -15,6 +15,6 @@ public class TestDispPlugin implements DisplayPlugin {
     }
 
     public String getName() {
-        return "STUB Display Plugin";
+        return "Display STUB";
     }
 }

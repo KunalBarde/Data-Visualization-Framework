@@ -28,11 +28,10 @@ public class WebScraperDataPlugin implements DataPlugin {
 
         JFrame inputDialog = new JFrame();
         try {
-            vDescription = JOptionPane.showInputDialog(inputDialog, "Enter Keywords Matching Value Description:", null);
+            vDescription = JOptionPane.showInputDialog(inputDialog, "Enter Keywords Matching Value Description:\nE.g.: Veteran", null);
         }catch(Exception e) {
-            System.out.println("Optino pane failed");
+            System.out.println("Option pane failed");
         }
-        System.out.println("1 Fail");
         Document doc = null;
         try{
             doc = Jsoup.parse(new URL(source), 2000);
@@ -41,13 +40,8 @@ public class WebScraperDataPlugin implements DataPlugin {
 
 
         Elements resultLinks = doc.select("a[href*=.xl]");
-        System.out.println("number of links: " + resultLinks.size());
         for (Element link : resultLinks) {
-            System.out.println();
-            String href = link.attr("href");
-            System.out.println("Title: " + link.text());
-            System.out.println("Url: " + href);
-
+            if(link.text() == "plotly") {continue;}
             try (BufferedInputStream inputStream = new BufferedInputStream(new URL(link.attr("href")).openStream());
                  FileOutputStream fileOS = new FileOutputStream("downloaded_xls.xls"))
             {
@@ -66,7 +60,6 @@ public class WebScraperDataPlugin implements DataPlugin {
             Sheet sheet = workbook.getSheetAt(0);
             DataFormatter dataFormatter = new DataFormatter();
             String comp = ".*(?i)(" + vDescription + ").*";
-            System.out.println(comp);
             for (Row row : sheet) {
                 Iterator<Cell> cellIterator = row.cellIterator();
                 Iterator<Cell> frowIt = sheet.getRow(sheet.getFirstRowNum()).cellIterator();
@@ -119,13 +112,12 @@ public class WebScraperDataPlugin implements DataPlugin {
             workbook.close();
         } catch (Exception e) {
             System.out.println("FAIL: Can't read data");
+            return null;
         }
-        System.out.println(dataPoints);
         return dataPoints;
     }
 
     public String getName() {
-
         return "Web Scraper XLS";
     }
 

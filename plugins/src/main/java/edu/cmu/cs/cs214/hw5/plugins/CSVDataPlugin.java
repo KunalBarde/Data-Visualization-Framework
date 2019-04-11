@@ -39,16 +39,18 @@ public class CSVDataPlugin implements DataPlugin {
         BufferedReader br;
 
         try {
-            br = new BufferedReader(new FileReader(str));
+            br = new BufferedReader(new FileReader(source));
+            System.out.println(br);
             dataPoints = new ArrayList<>();
             String line;
             while ((line = br.readLine()) != null) {
                 String[] values = line.split(",");
                 DataPoint dataPoint = new DataPoint(values[0], values[1], Integer.parseInt(values[TWO]), new BigDecimal(values[THREE]));
+                System.out.println(dataPoint);
                 dataPoints.add(dataPoint);
             }
         } catch (Exception e) {
-            return dataPoints;
+            return null;
         }
         return dataPoints;
     }

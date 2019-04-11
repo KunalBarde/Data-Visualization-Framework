@@ -17,6 +17,8 @@ public class CoreTester {
     int dispIdx;
     int numDispPlugins;
     DisplayDataStructure dds;
+    Map<String, List<String>> keys;
+    List<Integer> times;
     final BigDecimal zero = new BigDecimal("0");
     @Before
     public void stubSetUp() {
@@ -27,10 +29,10 @@ public class CoreTester {
     public void ddsSetUp() {
         DataPoint sampleA = new DataPoint("FL", "county", 2001, new BigDecimal("1"));
         DataPoint sampleB = new DataPoint("FL", "county", 2002, new BigDecimal("2"));
-        DataPoint sampleC = new DataPoint("CT", "midsex", 2001, new BigDecimal("1"));
-        DataPoint sampleD = new DataPoint("CT", "midsex", 2002, new BigDecimal("2"));
-        DataPoint sampleE = new DataPoint("MA", "corn", 2001, new BigDecimal("1"));
-        DataPoint sampleF = new DataPoint("MA", "herd", 2001, new BigDecimal("2"));
+        DataPoint sampleC = new DataPoint("CT", "midsex", 2001, new BigDecimal("10"));
+        DataPoint sampleD = new DataPoint("CT", "midsex", 2002, new BigDecimal("20"));
+        DataPoint sampleE = new DataPoint("MA", "corn", 2001, new BigDecimal("100"));
+        DataPoint sampleF = new DataPoint("MA", "herd", 2001, new BigDecimal("200"));
 
         List<DataPoint> dataPointList = new ArrayList<DataPoint>(Arrays.asList(sampleA, sampleB, sampleC,sampleD,sampleE
         ,sampleF));
@@ -43,6 +45,8 @@ public class CoreTester {
         }
 
         dds = new DisplayDataStructureImpl(tree, "label");
+        keys = dds.getAvailableKeys();
+        times = dds.getTimeRanges();
     }
 
     @Test
@@ -60,10 +64,9 @@ public class CoreTester {
         //After initialization, plugins list isn't null
         assertNotEquals(null, dispPlugins);
         //Contains at least 'TestDataPlugin'
-        System.out.println(dispPlugins);
         assertTrue(dispPlugins.size() > 0);
-        assertTrue(dispPlugins.contains("STUB Display Plugin"));
-        dispIdx = dispPlugins.indexOf("STUB Display Plugin");
+        assertTrue(dispPlugins.contains("Display STUB"));
+        dispIdx = dispPlugins.indexOf("Display STUB");
         numDispPlugins = dispPlugins.size();
     }
 
@@ -85,12 +88,8 @@ public class CoreTester {
     @Test
     public void testDisplayStructure() {
         //Getter tests
-        Map<String, List<String>> keys = dds.getAvailableKeys();
-        System.out.println(keys);
         assertTrue(arrayEquals(new ArrayList<>(keys.keySet()), new ArrayList<String>(Arrays.asList("FL", "CT", "MA"))));
 
-        List<Integer> times = dds.getTimeRanges();
-        System.out.println(times);
         assertEquals(2, times.size());
         assertTrue(arrayEquals(times, new ArrayList<Integer>(Arrays.asList(2001, 2002))));
 
@@ -102,14 +101,75 @@ public class CoreTester {
         Config cfg1 = new Config(times, keys); //remove everything
         PData set1 = dds.processFilterData(cfg1); //should be empty
         assertTrue(set1.getStateData("FL").size() == 1);
-        assertEquals(new BigDecimal("1.5"),set1.getStateAvg(keys.keySet().iterator().next()));
         assertEquals(2,set1.getCountyData("FL", "county").size());
         assertEquals(new BigDecimal("1.5"),set1.getCountyAvg("FL", "county"));
+        double std = set1.getCountyStd("FL", "county").doubleValue();
+        assertTrue(0.7 < std && std < 0.71);
+        assertEquals(new BigDecimal("3"),set1.getCountySum("FL", "county"));
+        assertEquals(4, set1.getYearData(2001).size());
+        assertEquals(2, set1.getYearData(2002).size());
+        assertEquals(0, set1.getYearData(2000).size());
     }
 
     @Test
-    public void testMultipleConfig() {
+    /**
+     * Tests if configuration that removes county works
+     */
+    public void testCountyConfig() {
+        List<Integer> times1 = new ArrayList<Integer>(Arrays.asList(2001));
+        Map<String, List<String>> keys1 = new TreeMap<>();
+        for(String state : new ArrayList<String>(Arrays.asList("MA"))){
+            keys1.put(state, keys.get(state));
+            keys1.get(state).remove("corn");
+        }
+        Config cfg1 = new Config(times1,keys1);
+        PData set1 = dds.processFilterData(cfg1);
+        assertTrue(set1.getStateData("MA").size() == 1);
+        assertEquals(new BigDecimal("200"),set1.getCountyAvg("MA", "herd"));
+        assertEquals(new BigDecimal("0"),set1.getCountyStd("MA", "herd"));
+        assertEquals(new BigDecimal("200"),set1.getCountySum("MA", "herd"));
+        assertEquals(new BigDecimal("200"), set1.getStateAvg("MA"));
 
+        assertTrue(set1.getStateData("FL").size() == 0);
+        assertTrue(set1.getCountyData("FL", "county").size() == 0);
+        assertTrue(set1.getStateData("CT").size() == 0);
+        assertTrue(set1.getStateData("Fake").size() == 0);
+
+        assertEquals(1, set1.getYearData(2001).size());
+        assertEquals(0, set1.getYearData(2002).size());
+    }
+
+    @Test
+     /**
+     * Tests if configuration that removes years works
+     */
+    public void testYearConfig() {
+        //No years allowed
+        List<Integer> times1 = new ArrayList<Integer>(Arrays.asList());
+        Map<String, List<String>> keys1 = keys;
+        Config cfg1 = new Config(times1,keys1);
+        PData set1 = dds.processFilterData(cfg1);
+        assertEquals(0, set1.getStateData("FL").size());
+        assertEquals(0,set1.getStateData("CT").size());
+        assertEquals(0,set1.getStateData("MA").size());
+
+        assertEquals(0, set1.getYearData(2001).size());
+        assertEquals(0, set1.getYearData(2002).size());
+        assertEquals(new BigDecimal("0"), set1.getYearAvg(2001));
+        assertEquals(new BigDecimal("0"), set1.getYearAvg(2002));
+
+        times1 = new ArrayList<Integer>(Arrays.asList(2001));
+        cfg1 = new Config(times1,keys1);
+        set1 = dds.processFilterData(cfg1);
+
+        assertEquals(1,set1.getStateData("FL").size());
+        assertEquals(1,set1.getStateData("CT").size());
+        assertEquals(2,set1.getStateData("MA").size());
+
+        assertEquals(4, set1.getYearData(2001).size());
+        assertEquals(0, set1.getYearData(2002).size());
+        double std = set1.getYearAvg(2001).doubleValue();
+        assertTrue(77.70 < std && std < 77.80);
     }
 
 

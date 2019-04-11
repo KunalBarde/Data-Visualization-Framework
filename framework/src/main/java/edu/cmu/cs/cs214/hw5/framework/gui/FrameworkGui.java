@@ -78,13 +78,18 @@ public class FrameworkGui extends JFrame {
                         if(selectedIndex != -1) {
                             JFrame inputDialog = new JFrame();
                             String source = JOptionPane.showInputDialog(inputDialog, "Enter Source Path:", null);
-                            if (fmWork.runDataPlugin(selectedIndex, source)) {
-                                msgBoard.setText("Data Load Successful");
-                                dispRun.setEnabled(true);
-                            } else {
-                                msgBoard.setText("Data Load Failed");
-                                dispRun.setEnabled(false);
-                            }
+
+                            javax.swing.SwingUtilities.invokeLater(new Runnable() {
+                                public void run() {
+                                    if (fmWork.runDataPlugin(selectedIndex, source)) {
+                                        msgBoard.setText("Data Load Successful");
+                                        dispRun.setEnabled(true);
+                                    } else {
+                                        msgBoard.setText("Data Load Failed");
+                                        dispRun.setEnabled(false);
+                                    }
+                                }
+                            });
                         }
                     }
             );

@@ -24,7 +24,11 @@ public class PData {
     public List<Map<Integer, BigDecimal>> getStateData(String state){
         Map<String, Map<Integer, BigDecimal>> nip = this.internals.get(state);
         List<Map<Integer, BigDecimal>> answer = new ArrayList<>();
+        if(nip == null) {
+            return answer;
+        }
         for(String county : nip.keySet()) {
+            System.out.println(county);
             answer.add(getCountyData(state,county));
         }
         return answer;
@@ -49,17 +53,7 @@ public class PData {
      * @return
      */
     public List<BigDecimal> getYearData(Integer targetYear){
-        List<BigDecimal> answer = new ArrayList<>();
-        for(String state : this.internals.keySet()){
-            for(String county : this.internals.get(state).keySet()) {
-                for(Integer year : this.internals.get(state).get(county).keySet()) {
-                    if(year == targetYear){
-                        answer.add(this.internals.get(state).get(county).get(year));
-                    }
-                }
-            }
-        }
-        return answer;
+        return getYearFlattened(targetYear);
     }
 
     //________AVG_________
@@ -74,7 +68,10 @@ public class PData {
             return zero;
         }
         List<BigDecimal> pasta = getStateFlattened(state);
-        return BigDecimalMathUtils.mean(pasta, MathContext.UNLIMITED);
+        if(pasta.size() == 0) {
+            return zero;
+        }
+        return BigDecimalMathUtils.mean(pasta, MathContext.DECIMAL64);
     }
 
     /**
@@ -89,7 +86,10 @@ public class PData {
             return zero;
         }
         List<BigDecimal> pasta = getCountyFlattened(state, county);
-        return BigDecimalMathUtils.mean(pasta,MathContext.UNLIMITED);
+        if(pasta.size() == 0) {
+            return zero;
+        }
+        return BigDecimalMathUtils.mean(pasta,MathContext.DECIMAL64);
     }
 
     /**
@@ -98,7 +98,10 @@ public class PData {
      * @return returns avg for a year across all data available
      */
     public BigDecimal getYearAvg(Integer targetYear){
-        return BigDecimalMathUtils.mean(getYearFlattened(targetYear), MathContext.UNLIMITED);
+        try {
+            return BigDecimalMathUtils.mean(getYearFlattened(targetYear), MathContext.DECIMAL64);
+        } catch(Exception e) {return zero;}
+
     }
 
     //________STD__________
@@ -107,7 +110,7 @@ public class PData {
         if(nip == null) {
             return zero;
         }
-        return BigDecimalMathUtils.stddev(getStateFlattened(state), true, MathContext.UNLIMITED);
+        return BigDecimalMathUtils.stddev(getStateFlattened(state), true, MathContext.DECIMAL64);
     }
 
     public BigDecimal getCountyStd(String state, String county) {
@@ -116,11 +119,11 @@ public class PData {
             return zero;
         }
         List<BigDecimal> pasta = getCountyFlattened(state, county);
-        return BigDecimalMathUtils.stddev(pasta,true,MathContext.UNLIMITED);
+        return BigDecimalMathUtils.stddev(pasta,true,MathContext.DECIMAL64);
     }
 
     public BigDecimal getYearStd(Integer targetYear){
-        return BigDecimalMathUtils.stddev(getYearFlattened(targetYear), true, MathContext.UNLIMITED);
+        return BigDecimalMathUtils.stddev(getYearFlattened(targetYear), true, MathContext.DECIMAL64);
     }
 
     //________SUM___________
@@ -171,7 +174,7 @@ public class PData {
         for(String state : this.internals.keySet()){
             for(String county : this.internals.get(state).keySet()) {
                 for(Integer year : this.internals.get(state).get(county).keySet()) {
-                    if(year == targetYear){
+                    if(year == targetYear.intValue()){
                         pasta.add(this.internals.get(state).get(county).get(year));
                     }
                 }
