@@ -1,13 +1,18 @@
-Dedu.cmu.cs.cs214.hw5.framework.test_plugins.TestDataPlugin@4b4467fa
-Cedu.cmu.cs.cs214.hw5.framework.test_plugins.TestDispPlugin@d5109d5
-[STUB Display Plugin]
-Dedu.cmu.cs.cs214.hw5.framework.test_plugins.TestDataPlugin@4543939a
-Cedu.cmu.cs.cs214.hw5.framework.test_plugins.TestDispPlugin@8b30b67
-Dedu.cmu.cs.cs214.hw5.framework.test_plugins.TestDataPlugin@51b2bdd7
-Dedu.cmu.cs.cs214.hw5.framework.test_plugins.TestDispPlugin@5436d501
-Dedu.cmu.cs.cs214.hw5.framework.test_plugins.TestDataPlugin@2dbf5c11
-Dedu.cmu.cs.cs214.hw5.framework.test_plugins.TestDispPlugin@72758cc8
-Dedu.cmu.cs.cs214.hw5.framework.test_plugins.TestDataPlugin@5feda9d0
-Dedu.cmu.cs.cs214.hw5.framework.test_plugins.TestDispPlugin@696d3745
-,{CT=[midsex], MA=[corn, herd], FL=[county]}
-[2001, 2002]
+Dedu.cmu.cs.cs214.hw5.framework.test_plugins.TestDataPlugin@f5a163d
+Eedu.cmu.cs.cs214.hw5.framework.test_plugins.TestDispPlugin@47324ba0
+Eedu.cmu.cs.cs214.hw5.framework.test_plugins.TestDataPlugin@67ea9784
+Eedu.cmu.cs.cs214.hw5.framework.test_plugins.TestDispPlugin@2bc282e4
+herd
+Eedu.cmu.cs.cs214.hw5.framework.test_plugins.TestDataPlugin@3a8cb6a0
+Dedu.cmu.cs.cs214.hw5.framework.test_plugins.TestDispPlugin@e55c995
+Eedu.cmu.cs.cs214.hw5.framework.test_plugins.TestDataPlugin@1aa80487
+Eedu.cmu.cs.cs214.hw5.framework.test_plugins.TestDispPlugin@7c94c128
+Eedu.cmu.cs.cs214.hw5.framework.test_plugins.TestDataPlugin@7eeded22
+Eedu.cmu.cs.cs214.hw5.framework.test_plugins.TestDispPlugin@28a43966
+county
+Eedu.cmu.cs.cs214.hw5.framework.test_plugins.TestDataPlugin@304683ac
+Eedu.cmu.cs.cs214.hw5.framework.test_plugins.TestDispPlugin@56b4d5b9
+county
+midsex
+corn
+herd

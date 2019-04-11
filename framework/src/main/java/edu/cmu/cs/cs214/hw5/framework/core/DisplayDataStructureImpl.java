@@ -45,7 +45,7 @@ class DisplayDataStructureImpl implements DisplayDataStructure {
      *               keep everything
      * @return PData datastructure containing filtered data and API to extract stuff from it
      */
-    public synchronized PData processFilterData(Config config) {
+    public PData processFilterData(Config config) {
         if(config == null) {
             return new PData(new TreeMap<>(this.currentData));
         }
@@ -99,6 +99,10 @@ class DisplayDataStructureImpl implements DisplayDataStructure {
         return this.timeRange;
     }
 
+    /**
+     * Returns the description of the numeric data
+     * @return string represnting description
+     */
     public String getValueDescription() {
         return this.dataLabel;
     }

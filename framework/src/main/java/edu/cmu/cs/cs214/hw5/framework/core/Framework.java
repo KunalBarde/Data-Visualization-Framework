@@ -18,6 +18,11 @@ public class Framework {
     private DisplayDataStructure displayDataStructure;
     private String dataLabel;
 
+    /**
+     * Framework handling Data and Display plugins of data meant to have the fields
+     * (State, County, Year, Value), where the value is numerical and can represent a
+     * anything numerical assocaited to a State, County
+     */
     public Framework() {
         ServiceLoader<DataPlugin> dataPins = ServiceLoader.load(DataPlugin.class);
         this.dataPlugins = new ArrayList<>();
@@ -36,14 +41,16 @@ public class Framework {
     }
 
     /**
-     * Returns ordered list of registered data plugins
+     * Returns ordered list of registered data plugins names
+     * @return ordered list of registered data plugins names
      */
     public List<String> getDataPlugins() {
         return dataPlugins.stream().map(s -> s.getName()).collect(Collectors.toList());
     }
 
     /**
-     * Returns ordered list of registered display plugins
+     * Returns ordered list of registered display plugins names
+     * @return  ordered list of registered display plugins names
      */
     public List<String> getDisplayPlugins() {
         if(this.displayPlugins == null) {
