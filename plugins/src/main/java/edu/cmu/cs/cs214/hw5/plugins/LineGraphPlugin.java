@@ -28,6 +28,9 @@ import org.jfree.data.category.DefaultCategoryDataset;
  * @author kunalbarde
  */
 public class LineGraphPlugin implements DisplayPlugin {
+    private static int width = 640;
+    private static int height = 480;
+
     /**
      * Visualize function that returns a JPanel with the graph
      * @param displayDataStructure
@@ -71,7 +74,7 @@ public class LineGraphPlugin implements DisplayPlugin {
 
 
         String str = JOptionPane.showInputDialog(parent,
-                "What data do you want to show, Enter: state, county, or both", null);
+                "What data do you want to show, Enter: state or county", null);
 
         boolean st = false, cty = false, both = false;
 
@@ -133,8 +136,6 @@ public class LineGraphPlugin implements DisplayPlugin {
         JFreeChart lineChartObject = ChartFactory.createLineChart(desc + " vs. " + "time", "time",
                 desc, line_chart_dataset, PlotOrientation.VERTICAL, true, true, false);
 
-        int width = 640, height = 480;
-
         String filename = desc+"LineChart"+".jpg";
 
         File lineChartFile = new File(filename);
@@ -156,7 +157,12 @@ public class LineGraphPlugin implements DisplayPlugin {
         return jpanel;
     }
 
+    /**
+     * Overriding getName() from interface
+     * @return String representing the name of the plugin/tool
+     */
 
+    @Override
     public String getName() {
         return "Line Graph Tool";
     }
