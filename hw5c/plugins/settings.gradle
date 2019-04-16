@@ -1,0 +1,3 @@
+rootProject.name = "plugins"
+include ':framework'
+project(':framework').projectDir = file('../../Team23-public/framework')
