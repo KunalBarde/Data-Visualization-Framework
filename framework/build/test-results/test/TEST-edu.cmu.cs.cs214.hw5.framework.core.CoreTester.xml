@@ -1,26 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="edu.cmu.cs.cs214.hw5.framework.core.CoreTester" tests="6" skipped="0" failures="0" errors="0" timestamp="2019-04-11T03:38:22" hostname="DESKTOP-0KBOTF12" time="0.233">
+<testsuite name="edu.cmu.cs.cs214.hw5.framework.core.CoreTester" tests="6" skipped="0" failures="0" errors="0" timestamp="2019-04-11T03:48:51" hostname="DESKTOP-0KBOTF12" time="0.376">
   <properties/>
   <testcase name="testSourceLoader" classname="edu.cmu.cs.cs214.hw5.framework.core.CoreTester" time="0.023"/>
-  <testcase name="testCountyConfig" classname="edu.cmu.cs.cs214.hw5.framework.core.CoreTester" time="0.009"/>
-  <testcase name="testDispPluginRunner" classname="edu.cmu.cs.cs214.hw5.framework.core.CoreTester" time="0.188"/>
+  <testcase name="testCountyConfig" classname="edu.cmu.cs.cs214.hw5.framework.core.CoreTester" time="0.007"/>
+  <testcase name="testDispPluginRunner" classname="edu.cmu.cs.cs214.hw5.framework.core.CoreTester" time="0.328"/>
   <testcase name="testDataPluginRunner" classname="edu.cmu.cs.cs214.hw5.framework.core.CoreTester" time="0.003"/>
-  <testcase name="testDisplayStructure" classname="edu.cmu.cs.cs214.hw5.framework.core.CoreTester" time="0.006"/>
-  <testcase name="testYearConfig" classname="edu.cmu.cs.cs214.hw5.framework.core.CoreTester" time="0.003"/>
-  <system-out><![CDATA[edu.cmu.cs.cs214.hw5.framework.test_plugins.TestDataPlugin@f5a163d
-edu.cmu.cs.cs214.hw5.framework.test_plugins.TestDispPlugin@47324ba0
-edu.cmu.cs.cs214.hw5.framework.test_plugins.TestDataPlugin@67ea9784
-edu.cmu.cs.cs214.hw5.framework.test_plugins.TestDispPlugin@2bc282e4
+  <testcase name="testDisplayStructure" classname="edu.cmu.cs.cs214.hw5.framework.core.CoreTester" time="0.009"/>
+  <testcase name="testYearConfig" classname="edu.cmu.cs.cs214.hw5.framework.core.CoreTester" time="0.004"/>
+  <system-out><![CDATA[edu.cmu.cs.cs214.hw5.framework.test_plugins.TestDataPlugin@1ff920e3
+edu.cmu.cs.cs214.hw5.framework.test_plugins.TestDispPlugin@f825572
+edu.cmu.cs.cs214.hw5.framework.test_plugins.TestDataPlugin@f18b8fc
+edu.cmu.cs.cs214.hw5.framework.test_plugins.TestDispPlugin@75a10591
 herd
-edu.cmu.cs.cs214.hw5.framework.test_plugins.TestDataPlugin@3a8cb6a0
-edu.cmu.cs.cs214.hw5.framework.test_plugins.TestDispPlugin@e55c995
-edu.cmu.cs.cs214.hw5.framework.test_plugins.TestDataPlugin@1aa80487
-edu.cmu.cs.cs214.hw5.framework.test_plugins.TestDispPlugin@7c94c128
-edu.cmu.cs.cs214.hw5.framework.test_plugins.TestDataPlugin@7eeded22
-edu.cmu.cs.cs214.hw5.framework.test_plugins.TestDispPlugin@28a43966
+edu.cmu.cs.cs214.hw5.framework.test_plugins.TestDataPlugin@301ee34e
+edu.cmu.cs.cs214.hw5.framework.test_plugins.TestDispPlugin@4b17d044
+edu.cmu.cs.cs214.hw5.framework.test_plugins.TestDataPlugin@1070fd1e
+edu.cmu.cs.cs214.hw5.framework.test_plugins.TestDispPlugin@165eb8e4
+edu.cmu.cs.cs214.hw5.framework.test_plugins.TestDataPlugin@7b8462b7
+edu.cmu.cs.cs214.hw5.framework.test_plugins.TestDispPlugin@546918c2
 county
-edu.cmu.cs.cs214.hw5.framework.test_plugins.TestDataPlugin@304683ac
-edu.cmu.cs.cs214.hw5.framework.test_plugins.TestDispPlugin@56b4d5b9
+edu.cmu.cs.cs214.hw5.framework.test_plugins.TestDataPlugin@64e679f2
+edu.cmu.cs.cs214.hw5.framework.test_plugins.TestDispPlugin@134d5e55
 county
 midsex
 corn
