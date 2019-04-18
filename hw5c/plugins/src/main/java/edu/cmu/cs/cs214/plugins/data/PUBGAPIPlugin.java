@@ -73,7 +73,7 @@ public class PUBGAPIPlugin implements DataPlugin {
     private String apiKey;
 
     private static final String PLAYER_FILTER = "/players?filter[playerNames]=";
-    private static final String MATCH_FILTER = "/matches/";
+    private static final String MATCH_FILTER = "/archives/";
 
     private String playerId;
 
