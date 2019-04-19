@@ -252,7 +252,8 @@ public class PUBGAPIPlugin implements DataPlugin {
                     if (data.get("winPlace").equals("1")) {
                         died = 0;
                     }
-                    MatchPlayerInfo playerInfo = new MatchPlayerInfo(data.get("name"), "PUBG Player", Integer.parseInt(data.get("kills")), died, Integer.parseInt(data.get("assists")), data.get("winPlace").equals("1"));
+                    MatchPlayerInfo playerInfo = new MatchPlayerInfo(data.get("name"), "PUBG Player", Integer.parseInt(data.get("kills")),
+                            died, Integer.parseInt(data.get("assists")), data.get("winPlace").equals("1"));
                     participants.add(playerInfo);
                 }
             }
