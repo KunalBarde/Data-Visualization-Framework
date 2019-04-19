@@ -7,3 +7,5 @@ edu.cmu.cs.cs214.plugins.data.DotaAPIPlugin
 # Team 28's data plugins
 # Neil
 edu.cmu.cs.cs214.plugins.data.PUBGAPIPlugin
+# Kunal
+edu.cmu.cs.cs214.plugins.data.PluginXLS

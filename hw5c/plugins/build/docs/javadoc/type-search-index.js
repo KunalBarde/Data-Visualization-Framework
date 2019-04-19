@@ -1,1 +1,0 @@
-typeSearchIndex = [{"l":"All Classes","url":"allclasses-index.html"},{"p":"edu.cmu.cs.cs214.plugins.data","l":"DotaAPIPlugin"},{"p":"edu.cmu.cs.cs214.plugins.display","l":"MatchDisplayPlugin"},{"p":"edu.cmu.cs.cs214.plugins.data","l":"OPGGHtmlPlugin"},{"p":"edu.cmu.cs.cs214.plugins.display","l":"RatingDisplayPlugin"}]
