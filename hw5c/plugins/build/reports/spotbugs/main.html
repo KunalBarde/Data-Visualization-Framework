@@ -1,0 +1,1193 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>SpotBugs Report</title>
+<style type="text/css">
+		.tablerow0 {
+			background: #EEEEEE;
+		}
+
+		.tablerow1 {
+			background: white;
+		}
+
+		.detailrow0 {
+			background: #EEEEEE;
+		}
+
+		.detailrow1 {
+			background: white;
+		}
+
+		.tableheader {
+			background: #b9b9fe;
+			font-size: larger;
+		}
+
+		.tablerow0:hover, .tablerow1:hover {
+			background: #aaffaa;
+		}
+
+		.priority-1 {
+		    color: red;
+		    font-weight: bold;
+		}
+		.priority-2 {
+		    color: orange;
+		    font-weight: bold;
+		}
+		.priority-3 {
+		    color: green;
+		    font-weight: bold;
+		}
+		.priority-4 {
+		    color: blue;
+		    font-weight: bold;
+		}
+		</style>
+<script type="text/javascript">
+			function toggleRow(elid) {
+				if (document.getElementById) {
+					element = document.getElementById(elid);
+					if (element) {
+						if (element.style.display == 'none') {
+							element.style.display = 'block';
+							//window.status = 'Toggle on!';
+						} else {
+							element.style.display = 'none';
+							//window.status = 'Toggle off!';
+						}
+					}
+				}
+			}
+		</script>
+</head>
+<body>
+<h1>
+<a href="https://spotbugs.github.io/">SpotBugs</a> Report</h1>
+<h2>Project Information</h2>
+<p>Project: 
+		</p>
+<p>SpotBugs version: 3.1.8</p>
+<p>Code analyzed:</p>
+<ul>
+<li>/Users/kunalbarde/2.0Team28/hw5c/plugins/build/classes/java/main/edu/cmu/cs/cs214/plugins/display/RatingDisplayPlugin.class</li>
+<li>/Users/kunalbarde/2.0Team28/hw5c/plugins/build/classes/java/main/edu/cmu/cs/cs214/plugins/display/LineGraphPerformancePlugin.class</li>
+<li>/Users/kunalbarde/2.0Team28/hw5c/plugins/build/classes/java/main/edu/cmu/cs/cs214/plugins/display/BarChartPlugin.class</li>
+<li>/Users/kunalbarde/2.0Team28/hw5c/plugins/build/classes/java/main/edu/cmu/cs/cs214/plugins/display/PieChartDisplayP.class</li>
+<li>/Users/kunalbarde/2.0Team28/hw5c/plugins/build/classes/java/main/edu/cmu/cs/cs214/plugins/display/BarChartPlugin$BarChart.class</li>
+<li>/Users/kunalbarde/2.0Team28/hw5c/plugins/build/classes/java/main/edu/cmu/cs/cs214/plugins/display/LineGraphPerformancePlugin$1.class</li>
+<li>/Users/kunalbarde/2.0Team28/hw5c/plugins/build/classes/java/main/edu/cmu/cs/cs214/plugins/display/MatchDisplayPlugin.class</li>
+<li>/Users/kunalbarde/2.0Team28/hw5c/plugins/build/classes/java/main/edu/cmu/cs/cs214/plugins/data/DotaAPIPlugin$JSONHeroes$JSONHero.class</li>
+<li>/Users/kunalbarde/2.0Team28/hw5c/plugins/build/classes/java/main/edu/cmu/cs/cs214/plugins/data/PUBGAPIPlugin$MatchCodes.class</li>
+<li>/Users/kunalbarde/2.0Team28/hw5c/plugins/build/classes/java/main/edu/cmu/cs/cs214/plugins/data/CHESScomDplugin$JASONGames$JSONGame$JSONPlayer.class</li>
+<li>/Users/kunalbarde/2.0Team28/hw5c/plugins/build/classes/java/main/edu/cmu/cs/cs214/plugins/data/CHESScomDplugin$JSONGameModes$JSONGameMode.class</li>
+<li>/Users/kunalbarde/2.0Team28/hw5c/plugins/build/classes/java/main/edu/cmu/cs/cs214/plugins/data/DotaAPIPlugin$JSONGameModes.class</li>
+<li>/Users/kunalbarde/2.0Team28/hw5c/plugins/build/classes/java/main/edu/cmu/cs/cs214/plugins/data/PUBGAPIPlugin.class</li>
+<li>/Users/kunalbarde/2.0Team28/hw5c/plugins/build/classes/java/main/edu/cmu/cs/cs214/plugins/data/OPGGHtmlPlugin$1.class</li>
+<li>/Users/kunalbarde/2.0Team28/hw5c/plugins/build/classes/java/main/edu/cmu/cs/cs214/plugins/data/CHESScomDplugin$1.class</li>
+<li>/Users/kunalbarde/2.0Team28/hw5c/plugins/build/classes/java/main/edu/cmu/cs/cs214/plugins/data/CHESScomDplugin$JSONArchive$JSONRecentMatch.class</li>
+<li>/Users/kunalbarde/2.0Team28/hw5c/plugins/build/classes/java/main/edu/cmu/cs/cs214/plugins/data/PUBGAPIPlugin$JSONPlayerData.class</li>
+<li>/Users/kunalbarde/2.0Team28/hw5c/plugins/build/classes/java/main/edu/cmu/cs/cs214/plugins/data/DotaAPIPlugin$JSONRecent.class</li>
+<li>/Users/kunalbarde/2.0Team28/hw5c/plugins/build/classes/java/main/edu/cmu/cs/cs214/plugins/data/DotaAPIPlugin$JSONGameModes$JSONGameMode.class</li>
+<li>/Users/kunalbarde/2.0Team28/hw5c/plugins/build/classes/java/main/edu/cmu/cs/cs214/plugins/data/CHESScomDplugin$JASONGames.class</li>
+<li>/Users/kunalbarde/2.0Team28/hw5c/plugins/build/classes/java/main/edu/cmu/cs/cs214/plugins/data/DotaAPIPlugin$1.class</li>
+<li>/Users/kunalbarde/2.0Team28/hw5c/plugins/build/classes/java/main/edu/cmu/cs/cs214/plugins/data/DotaAPIPlugin.class</li>
+<li>/Users/kunalbarde/2.0Team28/hw5c/plugins/build/classes/java/main/edu/cmu/cs/cs214/plugins/data/DotaAPIPlugin$JSONPlayer$JSONProfile.class</li>
+<li>/Users/kunalbarde/2.0Team28/hw5c/plugins/build/classes/java/main/edu/cmu/cs/cs214/plugins/data/CHESScomDplugin$JSONPlayer.class</li>
+<li>/Users/kunalbarde/2.0Team28/hw5c/plugins/build/classes/java/main/edu/cmu/cs/cs214/plugins/data/PUBGAPIPlugin$JSONMatch$DataPt$AttrPt.class</li>
+<li>/Users/kunalbarde/2.0Team28/hw5c/plugins/build/classes/java/main/edu/cmu/cs/cs214/plugins/data/OPGGHtmlPlugin$DESCENDING.class</li>
+<li>/Users/kunalbarde/2.0Team28/hw5c/plugins/build/classes/java/main/edu/cmu/cs/cs214/plugins/data/PUBGAPIPlugin$MatchCodes$Code.class</li>
+<li>/Users/kunalbarde/2.0Team28/hw5c/plugins/build/classes/java/main/edu/cmu/cs/cs214/plugins/data/CHESScomDplugin$JASONGames$JSONGame.class</li>
+<li>/Users/kunalbarde/2.0Team28/hw5c/plugins/build/classes/java/main/edu/cmu/cs/cs214/plugins/data/PluginXLS.class</li>
+<li>/Users/kunalbarde/2.0Team28/hw5c/plugins/build/classes/java/main/edu/cmu/cs/cs214/plugins/data/PUBGAPIPlugin$JSONPlayerData$Player$MatchData.class</li>
+<li>/Users/kunalbarde/2.0Team28/hw5c/plugins/build/classes/java/main/edu/cmu/cs/cs214/plugins/data/DotaAPIPlugin$JSONAccounts$JSONAccount.class</li>
+<li>/Users/kunalbarde/2.0Team28/hw5c/plugins/build/classes/java/main/edu/cmu/cs/cs214/plugins/data/PUBGAPIPlugin$JSONMatch$IncPt.class</li>
+<li>/Users/kunalbarde/2.0Team28/hw5c/plugins/build/classes/java/main/edu/cmu/cs/cs214/plugins/data/DotaAPIPlugin$JSONAccounts.class</li>
+<li>/Users/kunalbarde/2.0Team28/hw5c/plugins/build/classes/java/main/edu/cmu/cs/cs214/plugins/data/DotaAPIPlugin$JSONMatch.class</li>
+<li>/Users/kunalbarde/2.0Team28/hw5c/plugins/build/classes/java/main/edu/cmu/cs/cs214/plugins/data/DotaAPIPlugin$JSONMatch$JSONMatchPlayer.class</li>
+<li>/Users/kunalbarde/2.0Team28/hw5c/plugins/build/classes/java/main/edu/cmu/cs/cs214/plugins/data/CHESScomDplugin$JSONArchive.class</li>
+<li>/Users/kunalbarde/2.0Team28/hw5c/plugins/build/classes/java/main/edu/cmu/cs/cs214/plugins/data/OPGGHtmlPlugin.class</li>
+<li>/Users/kunalbarde/2.0Team28/hw5c/plugins/build/classes/java/main/edu/cmu/cs/cs214/plugins/data/DotaAPIPlugin$JSONPlayer.class</li>
+<li>/Users/kunalbarde/2.0Team28/hw5c/plugins/build/classes/java/main/edu/cmu/cs/cs214/plugins/data/PUBGAPIPlugin$JSONMatch.class</li>
+<li>/Users/kunalbarde/2.0Team28/hw5c/plugins/build/classes/java/main/edu/cmu/cs/cs214/plugins/data/DotaAPIPlugin$JSONRecent$JSONRecentMatch.class</li>
+<li>/Users/kunalbarde/2.0Team28/hw5c/plugins/build/classes/java/main/edu/cmu/cs/cs214/plugins/data/CHESScomDplugin$JSONGameModes.class</li>
+<li>/Users/kunalbarde/2.0Team28/hw5c/plugins/build/classes/java/main/edu/cmu/cs/cs214/plugins/data/PUBGAPIPlugin$JSONMatch$DataPt.class</li>
+<li>/Users/kunalbarde/2.0Team28/hw5c/plugins/build/classes/java/main/edu/cmu/cs/cs214/plugins/data/CHESScomDplugin.class</li>
+<li>/Users/kunalbarde/2.0Team28/hw5c/plugins/build/classes/java/main/edu/cmu/cs/cs214/plugins/data/DotaAPIPlugin$JSONHeroes.class</li>
+<li>/Users/kunalbarde/2.0Team28/hw5c/plugins/build/classes/java/main/edu/cmu/cs/cs214/plugins/data/PUBGAPIPlugin$JSONMatch$IncPt$Attributes.class</li>
+<li>/Users/kunalbarde/2.0Team28/hw5c/plugins/build/classes/java/main/edu/cmu/cs/cs214/plugins/data/PUBGAPIPlugin$JSONPlayerData$Player.class</li>
+</ul>
+<p>
+<br/>
+<br/>
+</p>
+<h2>Metrics</h2>
+<p>1323 lines of code analyzed,
+	in 46 classes, 
+	in 2 packages.</p>
+<table width="500" cellpadding="5" cellspacing="2">
+<tr class="tableheader">
+<th align="left">Metric</th>
+<th align="right">Total</th>
+<th align="right">Density*</th>
+</tr>
+<tr class="tablerow0">
+<td>High Priority Warnings</td>
+<td align="right">2</td>
+<td align="right">1.51</td>
+</tr>
+<tr class="tablerow1">
+<td>Medium Priority Warnings</td>
+<td align="right">56</td>
+<td align="right">42.33</td>
+</tr>
+<tr class="$totalClass">
+<td>
+<b>Total Warnings</b>
+</td>
+<td align="right">
+<b>58</b>
+</td>
+<td align="right">
+<b>43.84</b>
+</td>
+</tr>
+</table>
+<p>
+<i>(* Defects per Thousand lines of non-commenting source statements)</i>
+</p>
+<p>
+<br/>
+<br/>
+</p>
+<h2>Contents</h2>
+<ul>
+<li>
+<a href="#Warnings_CORRECTNESS">Correctness Warnings</a>
+</li>
+<li>
+<a href="#Warnings_I18N">Internationalization Warnings</a>
+</li>
+<li>
+<a href="#Warnings_PERFORMANCE">Performance Warnings</a>
+</li>
+<li>
+<a href="#Warnings_STYLE">Dodgy code Warnings</a>
+</li>
+<li>
+<a href="#Details">Details</a>
+</li>
+</ul>
+<h1>Summary</h1>
+<table width="500" cellpadding="5" cellspacing="2">
+<tr class="tableheader">
+<th align="left">Warning Type</th>
+<th align="right">Number</th>
+</tr>
+<tr class="tablerow0">
+<td>
+<a href="#Warnings_CORRECTNESS">Correctness Warnings</a>
+</td>
+<td align="right">20</td>
+</tr>
+<tr class="tablerow1">
+<td>
+<a href="#Warnings_I18N">Internationalization Warnings</a>
+</td>
+<td align="right">1</td>
+</tr>
+<tr class="tablerow0">
+<td>
+<a href="#Warnings_PERFORMANCE">Performance Warnings</a>
+</td>
+<td align="right">32</td>
+</tr>
+<tr class="tablerow1">
+<td>
+<a href="#Warnings_STYLE">Dodgy code Warnings</a>
+</td>
+<td align="right">5</td>
+</tr>
+<tr class="tablerow0">
+<td>
+<b>Total</b>
+</td>
+<td align="right">
+<b>58</b>
+</td>
+</tr>
+</table>
+<h1>Warnings</h1>
+<p>Click on a warning row to see full context information.</p>
+<h2>
+<a name="Warnings_CORRECTNESS">Correctness Warnings</a>
+</h2>
+<table class="warningtable" width="100%" cellspacing="0">
+<tr class="tableheader">
+<th align="left">Code</th>
+<th align="left">Warning</th>
+</tr>
+<tr class="tablerow1" onclick="toggleRow('N65730');">
+<td>
+<span class="priority-2">NP</span>
+</td>
+<td>Read of unwritten field result in edu.cmu.cs.cs214.plugins.data.CHESScomDplugin.onExtractData(String)</td>
+</tr>
+<tr class="detailrow1">
+<td/>
+<td>
+<p id="N65730" style="display: none;">
+<a href="#NP_UNWRITTEN_FIELD">Bug type NP_UNWRITTEN_FIELD (click for details)</a>
+<br/>In class edu.cmu.cs.cs214.plugins.data.CHESScomDplugin<br/>In method edu.cmu.cs.cs214.plugins.data.CHESScomDplugin.onExtractData(String)<br/>Field edu.cmu.cs.cs214.plugins.data.CHESScomDplugin$JASONGames$JSONGame$JSONPlayer.result<br/>At CHESScomDplugin.java:[line 122]<br/>Another occurrence at CHESScomDplugin.java:[line 123]</p>
+</td>
+</tr>
+<tr class="tablerow0" onclick="toggleRow('N65814');">
+<td>
+<span class="priority-2">NP</span>
+</td>
+<td>Read of unwritten field username in edu.cmu.cs.cs214.plugins.data.CHESScomDplugin.onExtractData(String)</td>
+</tr>
+<tr class="detailrow0">
+<td/>
+<td>
+<p id="N65814" style="display: none;">
+<a href="#NP_UNWRITTEN_FIELD">Bug type NP_UNWRITTEN_FIELD (click for details)</a>
+<br/>In class edu.cmu.cs.cs214.plugins.data.CHESScomDplugin<br/>In method edu.cmu.cs.cs214.plugins.data.CHESScomDplugin.onExtractData(String)<br/>Field edu.cmu.cs.cs214.plugins.data.CHESScomDplugin$JASONGames$JSONGame$JSONPlayer.username<br/>At CHESScomDplugin.java:[line 122]<br/>Another occurrence at CHESScomDplugin.java:[line 123]</p>
+</td>
+</tr>
+<tr class="tablerow1" onclick="toggleRow('N68309');">
+<td>
+<span class="priority-2">NP</span>
+</td>
+<td>Read of unwritten field matches in edu.cmu.cs.cs214.plugins.data.PluginXLS.onExtractData(String)</td>
+</tr>
+<tr class="detailrow1">
+<td/>
+<td>
+<p id="N68309" style="display: none;">
+<a href="#NP_UNWRITTEN_FIELD">Bug type NP_UNWRITTEN_FIELD (click for details)</a>
+<br/>In class edu.cmu.cs.cs214.plugins.data.PluginXLS<br/>In method edu.cmu.cs.cs214.plugins.data.PluginXLS.onExtractData(String)<br/>Field edu.cmu.cs.cs214.plugins.data.PluginXLS.matches<br/>At PluginXLS.java:[line 195]</p>
+</td>
+</tr>
+<tr class="tablerow0" onclick="toggleRow('N68381');">
+<td>
+<span class="priority-2">NP</span>
+</td>
+<td>Read of unwritten field playerInfos in edu.cmu.cs.cs214.plugins.data.PluginXLS.onExtractData(String)</td>
+</tr>
+<tr class="detailrow0">
+<td/>
+<td>
+<p id="N68381" style="display: none;">
+<a href="#NP_UNWRITTEN_FIELD">Bug type NP_UNWRITTEN_FIELD (click for details)</a>
+<br/>In class edu.cmu.cs.cs214.plugins.data.PluginXLS<br/>In method edu.cmu.cs.cs214.plugins.data.PluginXLS.onExtractData(String)<br/>Field edu.cmu.cs.cs214.plugins.data.PluginXLS.playerInfos<br/>At PluginXLS.java:[line 180]</p>
+</td>
+</tr>
+<tr class="tablerow1" onclick="toggleRow('N65985');">
+<td>
+<span class="priority-2">UwF</span>
+</td>
+<td>Unwritten field: edu.cmu.cs.cs214.plugins.data.CHESScomDplugin$JASONGames$JSONGame$JSONPlayer.result</td>
+</tr>
+<tr class="detailrow1">
+<td/>
+<td>
+<p id="N65985" style="display: none;">
+<a href="#UWF_UNWRITTEN_FIELD">Bug type UWF_UNWRITTEN_FIELD (click for details)</a>
+<br/>In class edu.cmu.cs.cs214.plugins.data.CHESScomDplugin$JASONGames$JSONGame$JSONPlayer<br/>Field edu.cmu.cs.cs214.plugins.data.CHESScomDplugin$JASONGames$JSONGame$JSONPlayer.result<br/>At CHESScomDplugin.java:[line 122]</p>
+</td>
+</tr>
+<tr class="tablerow0" onclick="toggleRow('N66039');">
+<td>
+<span class="priority-2">UwF</span>
+</td>
+<td>Unwritten field: edu.cmu.cs.cs214.plugins.data.CHESScomDplugin$JASONGames$JSONGame$JSONPlayer.username</td>
+</tr>
+<tr class="detailrow0">
+<td/>
+<td>
+<p id="N66039" style="display: none;">
+<a href="#UWF_UNWRITTEN_FIELD">Bug type UWF_UNWRITTEN_FIELD (click for details)</a>
+<br/>In class edu.cmu.cs.cs214.plugins.data.CHESScomDplugin$JASONGames$JSONGame$JSONPlayer<br/>Field edu.cmu.cs.cs214.plugins.data.CHESScomDplugin$JASONGames$JSONGame$JSONPlayer.username<br/>At CHESScomDplugin.java:[line 105]</p>
+</td>
+</tr>
+<tr class="tablerow1" onclick="toggleRow('N68453');">
+<td>
+<span class="priority-2">UwF</span>
+</td>
+<td>Unwritten field: edu.cmu.cs.cs214.plugins.data.PluginXLS.matches</td>
+</tr>
+<tr class="detailrow1">
+<td/>
+<td>
+<p id="N68453" style="display: none;">
+<a href="#UWF_UNWRITTEN_FIELD">Bug type UWF_UNWRITTEN_FIELD (click for details)</a>
+<br/>In class edu.cmu.cs.cs214.plugins.data.PluginXLS<br/>Field edu.cmu.cs.cs214.plugins.data.PluginXLS.matches<br/>At PluginXLS.java:[line 195]</p>
+</td>
+</tr>
+<tr class="tablerow0" onclick="toggleRow('N68507');">
+<td>
+<span class="priority-2">UwF</span>
+</td>
+<td>Unwritten field: edu.cmu.cs.cs214.plugins.data.PluginXLS.playerInfos</td>
+</tr>
+<tr class="detailrow0">
+<td/>
+<td>
+<p id="N68507" style="display: none;">
+<a href="#UWF_UNWRITTEN_FIELD">Bug type UWF_UNWRITTEN_FIELD (click for details)</a>
+<br/>In class edu.cmu.cs.cs214.plugins.data.PluginXLS<br/>Field edu.cmu.cs.cs214.plugins.data.PluginXLS.playerInfos<br/>At PluginXLS.java:[line 180]</p>
+</td>
+</tr>
+<tr class="tablerow1" onclick="toggleRow('N66737');">
+<td>
+<span class="priority-2">UwF</span>
+</td>
+<td>Unwritten field: edu.cmu.cs.cs214.plugins.data.PUBGAPIPlugin$JSONMatch$DataPt.attributes</td>
+</tr>
+<tr class="detailrow1">
+<td/>
+<td>
+<p id="N66737" style="display: none;">
+<a href="#UWF_UNWRITTEN_FIELD">Bug type UWF_UNWRITTEN_FIELD (click for details)</a>
+<br/>In class edu.cmu.cs.cs214.plugins.data.PUBGAPIPlugin$JSONMatch$DataPt<br/>Field edu.cmu.cs.cs214.plugins.data.PUBGAPIPlugin$JSONMatch$DataPt.attributes<br/>At PUBGAPIPlugin.java:[line 92]</p>
+</td>
+</tr>
+<tr class="tablerow0" onclick="toggleRow('N67178');">
+<td>
+<span class="priority-2">UwF</span>
+</td>
+<td>Unwritten field: edu.cmu.cs.cs214.plugins.data.PUBGAPIPlugin$JSONMatch$DataPt$AttrPt.createdAt</td>
+</tr>
+<tr class="detailrow0">
+<td/>
+<td>
+<p id="N67178" style="display: none;">
+<a href="#UWF_UNWRITTEN_FIELD">Bug type UWF_UNWRITTEN_FIELD (click for details)</a>
+<br/>In class edu.cmu.cs.cs214.plugins.data.PUBGAPIPlugin$JSONMatch$DataPt$AttrPt<br/>Field edu.cmu.cs.cs214.plugins.data.PUBGAPIPlugin$JSONMatch$DataPt$AttrPt.createdAt<br/>At PUBGAPIPlugin.java:[line 100]</p>
+</td>
+</tr>
+<tr class="tablerow1" onclick="toggleRow('N67232');">
+<td>
+<span class="priority-2">UwF</span>
+</td>
+<td>Unwritten field: edu.cmu.cs.cs214.plugins.data.PUBGAPIPlugin$JSONMatch$DataPt$AttrPt.gameMode</td>
+</tr>
+<tr class="detailrow1">
+<td/>
+<td>
+<p id="N67232" style="display: none;">
+<a href="#UWF_UNWRITTEN_FIELD">Bug type UWF_UNWRITTEN_FIELD (click for details)</a>
+<br/>In class edu.cmu.cs.cs214.plugins.data.PUBGAPIPlugin$JSONMatch$DataPt$AttrPt<br/>Field edu.cmu.cs.cs214.plugins.data.PUBGAPIPlugin$JSONMatch$DataPt$AttrPt.gameMode<br/>At PUBGAPIPlugin.java:[line 100]</p>
+</td>
+</tr>
+<tr class="tablerow0" onclick="toggleRow('N67286');">
+<td>
+<span class="priority-2">UwF</span>
+</td>
+<td>Unwritten field: edu.cmu.cs.cs214.plugins.data.PUBGAPIPlugin$JSONMatch$DataPt$AttrPt.mapName</td>
+</tr>
+<tr class="detailrow0">
+<td/>
+<td>
+<p id="N67286" style="display: none;">
+<a href="#UWF_UNWRITTEN_FIELD">Bug type UWF_UNWRITTEN_FIELD (click for details)</a>
+<br/>In class edu.cmu.cs.cs214.plugins.data.PUBGAPIPlugin$JSONMatch$DataPt$AttrPt<br/>Field edu.cmu.cs.cs214.plugins.data.PUBGAPIPlugin$JSONMatch$DataPt$AttrPt.mapName<br/>At PUBGAPIPlugin.java:[line 100]</p>
+</td>
+</tr>
+<tr class="tablerow1" onclick="toggleRow('N67390');">
+<td>
+<span class="priority-2">UwF</span>
+</td>
+<td>Unwritten field: edu.cmu.cs.cs214.plugins.data.PUBGAPIPlugin$JSONMatch$IncPt.attributes</td>
+</tr>
+<tr class="detailrow1">
+<td/>
+<td>
+<p id="N67390" style="display: none;">
+<a href="#UWF_UNWRITTEN_FIELD">Bug type UWF_UNWRITTEN_FIELD (click for details)</a>
+<br/>In class edu.cmu.cs.cs214.plugins.data.PUBGAPIPlugin$JSONMatch$IncPt<br/>Field edu.cmu.cs.cs214.plugins.data.PUBGAPIPlugin$JSONMatch$IncPt.attributes<br/>At PUBGAPIPlugin.java:[line 118]</p>
+</td>
+</tr>
+<tr class="tablerow0" onclick="toggleRow('N67444');">
+<td>
+<span class="priority-2">UwF</span>
+</td>
+<td>Unwritten field: edu.cmu.cs.cs214.plugins.data.PUBGAPIPlugin$JSONMatch$IncPt.type</td>
+</tr>
+<tr class="detailrow0">
+<td/>
+<td>
+<p id="N67444" style="display: none;">
+<a href="#UWF_UNWRITTEN_FIELD">Bug type UWF_UNWRITTEN_FIELD (click for details)</a>
+<br/>In class edu.cmu.cs.cs214.plugins.data.PUBGAPIPlugin$JSONMatch$IncPt<br/>Field edu.cmu.cs.cs214.plugins.data.PUBGAPIPlugin$JSONMatch$IncPt.type<br/>At PUBGAPIPlugin.java:[line 118]</p>
+</td>
+</tr>
+<tr class="tablerow1" onclick="toggleRow('N67535');">
+<td>
+<span class="priority-2">UwF</span>
+</td>
+<td>Unwritten field: edu.cmu.cs.cs214.plugins.data.PUBGAPIPlugin$JSONMatch$IncPt$Attributes.stats</td>
+</tr>
+<tr class="detailrow1">
+<td/>
+<td>
+<p id="N67535" style="display: none;">
+<a href="#UWF_UNWRITTEN_FIELD">Bug type UWF_UNWRITTEN_FIELD (click for details)</a>
+<br/>In class edu.cmu.cs.cs214.plugins.data.PUBGAPIPlugin$JSONMatch$IncPt$Attributes<br/>Field edu.cmu.cs.cs214.plugins.data.PUBGAPIPlugin$JSONMatch$IncPt$Attributes.stats<br/>At PUBGAPIPlugin.java:[line 126]</p>
+</td>
+</tr>
+<tr class="tablerow0" onclick="toggleRow('N67739');">
+<td>
+<span class="priority-2">UwF</span>
+</td>
+<td>Unwritten field: edu.cmu.cs.cs214.plugins.data.PUBGAPIPlugin$JSONPlayerData$Player.id</td>
+</tr>
+<tr class="detailrow0">
+<td/>
+<td>
+<p id="N67739" style="display: none;">
+<a href="#UWF_UNWRITTEN_FIELD">Bug type UWF_UNWRITTEN_FIELD (click for details)</a>
+<br/>In class edu.cmu.cs.cs214.plugins.data.PUBGAPIPlugin$JSONPlayerData$Player<br/>Field edu.cmu.cs.cs214.plugins.data.PUBGAPIPlugin$JSONPlayerData$Player.id<br/>At PUBGAPIPlugin.java:[line 46]</p>
+</td>
+</tr>
+<tr class="tablerow1" onclick="toggleRow('N67793');">
+<td>
+<span class="priority-2">UwF</span>
+</td>
+<td>Unwritten field: edu.cmu.cs.cs214.plugins.data.PUBGAPIPlugin$JSONPlayerData$Player.relationships</td>
+</tr>
+<tr class="detailrow1">
+<td/>
+<td>
+<p id="N67793" style="display: none;">
+<a href="#UWF_UNWRITTEN_FIELD">Bug type UWF_UNWRITTEN_FIELD (click for details)</a>
+<br/>In class edu.cmu.cs.cs214.plugins.data.PUBGAPIPlugin$JSONPlayerData$Player<br/>Field edu.cmu.cs.cs214.plugins.data.PUBGAPIPlugin$JSONPlayerData$Player.relationships<br/>At PUBGAPIPlugin.java:[line 46]</p>
+</td>
+</tr>
+<tr class="tablerow0" onclick="toggleRow('N67984');">
+<td>
+<span class="priority-2">UwF</span>
+</td>
+<td>Unwritten field: edu.cmu.cs.cs214.plugins.data.PUBGAPIPlugin$JSONPlayerData$Player$MatchData.matches</td>
+</tr>
+<tr class="detailrow0">
+<td/>
+<td>
+<p id="N67984" style="display: none;">
+<a href="#UWF_UNWRITTEN_FIELD">Bug type UWF_UNWRITTEN_FIELD (click for details)</a>
+<br/>In class edu.cmu.cs.cs214.plugins.data.PUBGAPIPlugin$JSONPlayerData$Player$MatchData<br/>Field edu.cmu.cs.cs214.plugins.data.PUBGAPIPlugin$JSONPlayerData$Player$MatchData.matches<br/>At PUBGAPIPlugin.java:[line 56]</p>
+</td>
+</tr>
+<tr class="tablerow1" onclick="toggleRow('N68075');">
+<td>
+<span class="priority-2">UwF</span>
+</td>
+<td>Unwritten field: edu.cmu.cs.cs214.plugins.data.PUBGAPIPlugin$MatchCodes.data</td>
+</tr>
+<tr class="detailrow1">
+<td/>
+<td>
+<p id="N68075" style="display: none;">
+<a href="#UWF_UNWRITTEN_FIELD">Bug type UWF_UNWRITTEN_FIELD (click for details)</a>
+<br/>In class edu.cmu.cs.cs214.plugins.data.PUBGAPIPlugin$MatchCodes<br/>Field edu.cmu.cs.cs214.plugins.data.PUBGAPIPlugin$MatchCodes.data<br/>At PUBGAPIPlugin.java:[line 67]</p>
+</td>
+</tr>
+<tr class="tablerow0" onclick="toggleRow('N68179');">
+<td>
+<span class="priority-2">UwF</span>
+</td>
+<td>Unwritten field: edu.cmu.cs.cs214.plugins.data.PUBGAPIPlugin$MatchCodes$Code.id</td>
+</tr>
+<tr class="detailrow0">
+<td/>
+<td>
+<p id="N68179" style="display: none;">
+<a href="#UWF_UNWRITTEN_FIELD">Bug type UWF_UNWRITTEN_FIELD (click for details)</a>
+<br/>In class edu.cmu.cs.cs214.plugins.data.PUBGAPIPlugin$MatchCodes$Code<br/>Field edu.cmu.cs.cs214.plugins.data.PUBGAPIPlugin$MatchCodes$Code.id<br/>At PUBGAPIPlugin.java:[line 73]</p>
+</td>
+</tr>
+</table>
+<h2>
+<a name="Warnings_I18N">Internationalization Warnings</a>
+</h2>
+<table class="warningtable" width="100%" cellspacing="0">
+<tr class="tableheader">
+<th align="left">Code</th>
+<th align="left">Warning</th>
+</tr>
+<tr class="tablerow1" onclick="toggleRow('N66508');">
+<td>
+<span class="priority-1">Dm</span>
+</td>
+<td>Found reliance on default encoding in edu.cmu.cs.cs214.plugins.data.PUBGAPIPlugin.extractFromURL(String, String): new java.util.Scanner(InputStream)</td>
+</tr>
+<tr class="detailrow1">
+<td/>
+<td>
+<p id="N66508" style="display: none;">
+<a href="#DM_DEFAULT_ENCODING">Bug type DM_DEFAULT_ENCODING (click for details)</a>
+<br/>In class edu.cmu.cs.cs214.plugins.data.PUBGAPIPlugin<br/>In method edu.cmu.cs.cs214.plugins.data.PUBGAPIPlugin.extractFromURL(String, String)<br/>Called method new java.util.Scanner(InputStream)<br/>At PUBGAPIPlugin.java:[line 290]</p>
+</td>
+</tr>
+</table>
+<h2>
+<a name="Warnings_PERFORMANCE">Performance Warnings</a>
+</h2>
+<table class="warningtable" width="100%" cellspacing="0">
+<tr class="tableheader">
+<th align="left">Code</th>
+<th align="left">Warning</th>
+</tr>
+<tr class="tablerow1" onclick="toggleRow('N65948');">
+<td>
+<span class="priority-2">SIC</span>
+</td>
+<td>Should edu.cmu.cs.cs214.plugins.data.CHESScomDplugin$JASONGames$JSONGame$JSONPlayer be a _static_ inner class?</td>
+</tr>
+<tr class="detailrow1">
+<td/>
+<td>
+<p id="N65948" style="display: none;">
+<a href="#SIC_INNER_SHOULD_BE_STATIC">Bug type SIC_INNER_SHOULD_BE_STATIC (click for details)</a>
+<br/>In class edu.cmu.cs.cs214.plugins.data.CHESScomDplugin$JASONGames$JSONGame$JSONPlayer<br/>At CHESScomDplugin.java:[line 239]</p>
+</td>
+</tr>
+<tr class="tablerow0" onclick="toggleRow('N66093');">
+<td>
+<span class="priority-2">SIC</span>
+</td>
+<td>Should edu.cmu.cs.cs214.plugins.data.CHESScomDplugin$JSONArchive be a _static_ inner class?</td>
+</tr>
+<tr class="detailrow0">
+<td/>
+<td>
+<p id="N66093" style="display: none;">
+<a href="#SIC_INNER_SHOULD_BE_STATIC">Bug type SIC_INNER_SHOULD_BE_STATIC (click for details)</a>
+<br/>In class edu.cmu.cs.cs214.plugins.data.CHESScomDplugin$JSONArchive<br/>At CHESScomDplugin.java:[line 221]</p>
+</td>
+</tr>
+<tr class="tablerow1" onclick="toggleRow('N66230');">
+<td>
+<span class="priority-2">SIC</span>
+</td>
+<td>Should edu.cmu.cs.cs214.plugins.data.CHESScomDplugin$JSONGameModes be a _static_ inner class?</td>
+</tr>
+<tr class="detailrow1">
+<td/>
+<td>
+<p id="N66230" style="display: none;">
+<a href="#SIC_INNER_SHOULD_BE_STATIC">Bug type SIC_INNER_SHOULD_BE_STATIC (click for details)</a>
+<br/>In class edu.cmu.cs.cs214.plugins.data.CHESScomDplugin$JSONGameModes<br/>At CHESScomDplugin.java:[line 247]</p>
+</td>
+</tr>
+<tr class="tablerow0" onclick="toggleRow('N66421');">
+<td>
+<span class="priority-2">SIC</span>
+</td>
+<td>Should edu.cmu.cs.cs214.plugins.data.CHESScomDplugin$JSONPlayer be a _static_ inner class?</td>
+</tr>
+<tr class="detailrow0">
+<td/>
+<td>
+<p id="N66421" style="display: none;">
+<a href="#SIC_INNER_SHOULD_BE_STATIC">Bug type SIC_INNER_SHOULD_BE_STATIC (click for details)</a>
+<br/>In class edu.cmu.cs.cs214.plugins.data.CHESScomDplugin$JSONPlayer<br/>At CHESScomDplugin.java:[line 217]</p>
+</td>
+</tr>
+<tr class="tablerow1" onclick="toggleRow('N66791');">
+<td>
+<span class="priority-2">SIC</span>
+</td>
+<td>Should edu.cmu.cs.cs214.plugins.data.PUBGAPIPlugin$JSONMatch$DataPt$AttrPt be a _static_ inner class?</td>
+</tr>
+<tr class="detailrow1">
+<td/>
+<td>
+<p id="N66791" style="display: none;">
+<a href="#SIC_INNER_SHOULD_BE_STATIC">Bug type SIC_INNER_SHOULD_BE_STATIC (click for details)</a>
+<br/>In class edu.cmu.cs.cs214.plugins.data.PUBGAPIPlugin$JSONMatch$DataPt$AttrPt<br/>At PUBGAPIPlugin.java:[line 100]</p>
+</td>
+</tr>
+<tr class="tablerow0" onclick="toggleRow('N67498');">
+<td>
+<span class="priority-2">SIC</span>
+</td>
+<td>Should edu.cmu.cs.cs214.plugins.data.PUBGAPIPlugin$JSONMatch$IncPt$Attributes be a _static_ inner class?</td>
+</tr>
+<tr class="detailrow0">
+<td/>
+<td>
+<p id="N67498" style="display: none;">
+<a href="#SIC_INNER_SHOULD_BE_STATIC">Bug type SIC_INNER_SHOULD_BE_STATIC (click for details)</a>
+<br/>In class edu.cmu.cs.cs214.plugins.data.PUBGAPIPlugin$JSONMatch$IncPt$Attributes<br/>At PUBGAPIPlugin.java:[line 126]</p>
+</td>
+</tr>
+<tr class="tablerow1" onclick="toggleRow('N67847');">
+<td>
+<span class="priority-2">SIC</span>
+</td>
+<td>Should edu.cmu.cs.cs214.plugins.data.PUBGAPIPlugin$JSONPlayerData$Player$MatchData be a _static_ inner class?</td>
+</tr>
+<tr class="detailrow1">
+<td/>
+<td>
+<p id="N67847" style="display: none;">
+<a href="#SIC_INNER_SHOULD_BE_STATIC">Bug type SIC_INNER_SHOULD_BE_STATIC (click for details)</a>
+<br/>In class edu.cmu.cs.cs214.plugins.data.PUBGAPIPlugin$JSONPlayerData$Player$MatchData<br/>At PUBGAPIPlugin.java:[line 56]</p>
+</td>
+</tr>
+<tr class="tablerow0" onclick="toggleRow('N68038');">
+<td>
+<span class="priority-2">SIC</span>
+</td>
+<td>Should edu.cmu.cs.cs214.plugins.data.PUBGAPIPlugin$MatchCodes be a _static_ inner class?</td>
+</tr>
+<tr class="detailrow0">
+<td/>
+<td>
+<p id="N68038" style="display: none;">
+<a href="#SIC_INNER_SHOULD_BE_STATIC">Bug type SIC_INNER_SHOULD_BE_STATIC (click for details)</a>
+<br/>In class edu.cmu.cs.cs214.plugins.data.PUBGAPIPlugin$MatchCodes<br/>At PUBGAPIPlugin.java:[line 67]</p>
+</td>
+</tr>
+<tr class="tablerow1" onclick="toggleRow('N68751');">
+<td>
+<span class="priority-2">SIC</span>
+</td>
+<td>Should edu.cmu.cs.cs214.plugins.display.BarChartPlugin$BarChart be a _static_ inner class?</td>
+</tr>
+<tr class="detailrow1">
+<td/>
+<td>
+<p id="N68751" style="display: none;">
+<a href="#SIC_INNER_SHOULD_BE_STATIC">Bug type SIC_INNER_SHOULD_BE_STATIC (click for details)</a>
+<br/>In class edu.cmu.cs.cs214.plugins.display.BarChartPlugin$BarChart<br/>At BarChartPlugin.java:[lines 52-121]</p>
+</td>
+</tr>
+<tr class="tablerow0" onclick="toggleRow('N66317');">
+<td>
+<span class="priority-2">UrF</span>
+</td>
+<td>Unread field: edu.cmu.cs.cs214.plugins.data.CHESScomDplugin$JSONGameModes$JSONGameMode.name</td>
+</tr>
+<tr class="detailrow0">
+<td/>
+<td>
+<p id="N66317" style="display: none;">
+<a href="#URF_UNREAD_FIELD">Bug type URF_UNREAD_FIELD (click for details)</a>
+<br/>In class edu.cmu.cs.cs214.plugins.data.CHESScomDplugin$JSONGameModes$JSONGameMode<br/>Field edu.cmu.cs.cs214.plugins.data.CHESScomDplugin$JSONGameModes$JSONGameMode.name<br/>At CHESScomDplugin.java:[line 252]</p>
+</td>
+</tr>
+<tr class="tablerow1" onclick="toggleRow('N65898');">
+<td>
+<span class="priority-2">UuF</span>
+</td>
+<td>Unused field: edu.cmu.cs.cs214.plugins.data.CHESScomDplugin.player</td>
+</tr>
+<tr class="detailrow1">
+<td/>
+<td>
+<p id="N65898" style="display: none;">
+<a href="#UUF_UNUSED_FIELD">Bug type UUF_UNUSED_FIELD (click for details)</a>
+<br/>In class edu.cmu.cs.cs214.plugins.data.CHESScomDplugin<br/>Field edu.cmu.cs.cs214.plugins.data.CHESScomDplugin.player<br/>In CHESScomDplugin.java</p>
+</td>
+</tr>
+<tr class="tablerow0" onclick="toggleRow('N66130');">
+<td>
+<span class="priority-2">UuF</span>
+</td>
+<td>Unused field: edu.cmu.cs.cs214.plugins.data.CHESScomDplugin$JSONArchive.archives</td>
+</tr>
+<tr class="detailrow0">
+<td/>
+<td>
+<p id="N66130" style="display: none;">
+<a href="#UUF_UNUSED_FIELD">Bug type UUF_UNUSED_FIELD (click for details)</a>
+<br/>In class edu.cmu.cs.cs214.plugins.data.CHESScomDplugin$JSONArchive<br/>Field edu.cmu.cs.cs214.plugins.data.CHESScomDplugin$JSONArchive.archives<br/>In CHESScomDplugin.java</p>
+</td>
+</tr>
+<tr class="tablerow1" onclick="toggleRow('N66180');">
+<td>
+<span class="priority-2">UuF</span>
+</td>
+<td>Unused field: edu.cmu.cs.cs214.plugins.data.CHESScomDplugin$JSONArchive$JSONRecentMatch.url</td>
+</tr>
+<tr class="detailrow1">
+<td/>
+<td>
+<p id="N66180" style="display: none;">
+<a href="#UUF_UNUSED_FIELD">Bug type UUF_UNUSED_FIELD (click for details)</a>
+<br/>In class edu.cmu.cs.cs214.plugins.data.CHESScomDplugin$JSONArchive$JSONRecentMatch<br/>Field edu.cmu.cs.cs214.plugins.data.CHESScomDplugin$JSONArchive$JSONRecentMatch.url<br/>In CHESScomDplugin.java</p>
+</td>
+</tr>
+<tr class="tablerow0" onclick="toggleRow('N66267');">
+<td>
+<span class="priority-2">UuF</span>
+</td>
+<td>Unused field: edu.cmu.cs.cs214.plugins.data.CHESScomDplugin$JSONGameModes.modes</td>
+</tr>
+<tr class="detailrow0">
+<td/>
+<td>
+<p id="N66267" style="display: none;">
+<a href="#UUF_UNUSED_FIELD">Bug type UUF_UNUSED_FIELD (click for details)</a>
+<br/>In class edu.cmu.cs.cs214.plugins.data.CHESScomDplugin$JSONGameModes<br/>Field edu.cmu.cs.cs214.plugins.data.CHESScomDplugin$JSONGameModes.modes<br/>In CHESScomDplugin.java</p>
+</td>
+</tr>
+<tr class="tablerow1" onclick="toggleRow('N66371');">
+<td>
+<span class="priority-2">UuF</span>
+</td>
+<td>Unused field: edu.cmu.cs.cs214.plugins.data.CHESScomDplugin$JSONGameModes$JSONGameMode.id</td>
+</tr>
+<tr class="detailrow1">
+<td/>
+<td>
+<p id="N66371" style="display: none;">
+<a href="#UUF_UNUSED_FIELD">Bug type UUF_UNUSED_FIELD (click for details)</a>
+<br/>In class edu.cmu.cs.cs214.plugins.data.CHESScomDplugin$JSONGameModes$JSONGameMode<br/>Field edu.cmu.cs.cs214.plugins.data.CHESScomDplugin$JSONGameModes$JSONGameMode.id<br/>In CHESScomDplugin.java</p>
+</td>
+</tr>
+<tr class="tablerow0" onclick="toggleRow('N66458');">
+<td>
+<span class="priority-2">UuF</span>
+</td>
+<td>Unused field: edu.cmu.cs.cs214.plugins.data.CHESScomDplugin$JSONPlayer.username</td>
+</tr>
+<tr class="detailrow0">
+<td/>
+<td>
+<p id="N66458" style="display: none;">
+<a href="#UUF_UNUSED_FIELD">Bug type UUF_UNUSED_FIELD (click for details)</a>
+<br/>In class edu.cmu.cs.cs214.plugins.data.CHESScomDplugin$JSONPlayer<br/>Field edu.cmu.cs.cs214.plugins.data.CHESScomDplugin$JSONPlayer.username<br/>In CHESScomDplugin.java</p>
+</td>
+</tr>
+<tr class="tablerow1" onclick="toggleRow('N66637');">
+<td>
+<span class="priority-2">UuF</span>
+</td>
+<td>Unused field: edu.cmu.cs.cs214.plugins.data.PUBGAPIPlugin$JSONMatch$DataPt.id</td>
+</tr>
+<tr class="detailrow1">
+<td/>
+<td>
+<p id="N66637" style="display: none;">
+<a href="#UUF_UNUSED_FIELD">Bug type UUF_UNUSED_FIELD (click for details)</a>
+<br/>In class edu.cmu.cs.cs214.plugins.data.PUBGAPIPlugin$JSONMatch$DataPt<br/>Field edu.cmu.cs.cs214.plugins.data.PUBGAPIPlugin$JSONMatch$DataPt.id<br/>In PUBGAPIPlugin.java</p>
+</td>
+</tr>
+<tr class="tablerow0" onclick="toggleRow('N66687');">
+<td>
+<span class="priority-2">UuF</span>
+</td>
+<td>Unused field: edu.cmu.cs.cs214.plugins.data.PUBGAPIPlugin$JSONMatch$DataPt.type</td>
+</tr>
+<tr class="detailrow0">
+<td/>
+<td>
+<p id="N66687" style="display: none;">
+<a href="#UUF_UNUSED_FIELD">Bug type UUF_UNUSED_FIELD (click for details)</a>
+<br/>In class edu.cmu.cs.cs214.plugins.data.PUBGAPIPlugin$JSONMatch$DataPt<br/>Field edu.cmu.cs.cs214.plugins.data.PUBGAPIPlugin$JSONMatch$DataPt.type<br/>In PUBGAPIPlugin.java</p>
+</td>
+</tr>
+<tr class="tablerow1" onclick="toggleRow('N66828');">
+<td>
+<span class="priority-2">UuF</span>
+</td>
+<td>Unused field: edu.cmu.cs.cs214.plugins.data.PUBGAPIPlugin$JSONMatch$DataPt$AttrPt.isCustomMatch</td>
+</tr>
+<tr class="detailrow1">
+<td/>
+<td>
+<p id="N66828" style="display: none;">
+<a href="#UUF_UNUSED_FIELD">Bug type UUF_UNUSED_FIELD (click for details)</a>
+<br/>In class edu.cmu.cs.cs214.plugins.data.PUBGAPIPlugin$JSONMatch$DataPt$AttrPt<br/>Field edu.cmu.cs.cs214.plugins.data.PUBGAPIPlugin$JSONMatch$DataPt$AttrPt.isCustomMatch<br/>In PUBGAPIPlugin.java</p>
+</td>
+</tr>
+<tr class="tablerow0" onclick="toggleRow('N66878');">
+<td>
+<span class="priority-2">UuF</span>
+</td>
+<td>Unused field: edu.cmu.cs.cs214.plugins.data.PUBGAPIPlugin$JSONMatch$DataPt$AttrPt.patchVersion</td>
+</tr>
+<tr class="detailrow0">
+<td/>
+<td>
+<p id="N66878" style="display: none;">
+<a href="#UUF_UNUSED_FIELD">Bug type UUF_UNUSED_FIELD (click for details)</a>
+<br/>In class edu.cmu.cs.cs214.plugins.data.PUBGAPIPlugin$JSONMatch$DataPt$AttrPt<br/>Field edu.cmu.cs.cs214.plugins.data.PUBGAPIPlugin$JSONMatch$DataPt$AttrPt.patchVersion<br/>In PUBGAPIPlugin.java</p>
+</td>
+</tr>
+<tr class="tablerow1" onclick="toggleRow('N66928');">
+<td>
+<span class="priority-2">UuF</span>
+</td>
+<td>Unused field: edu.cmu.cs.cs214.plugins.data.PUBGAPIPlugin$JSONMatch$DataPt$AttrPt.seasonState</td>
+</tr>
+<tr class="detailrow1">
+<td/>
+<td>
+<p id="N66928" style="display: none;">
+<a href="#UUF_UNUSED_FIELD">Bug type UUF_UNUSED_FIELD (click for details)</a>
+<br/>In class edu.cmu.cs.cs214.plugins.data.PUBGAPIPlugin$JSONMatch$DataPt$AttrPt<br/>Field edu.cmu.cs.cs214.plugins.data.PUBGAPIPlugin$JSONMatch$DataPt$AttrPt.seasonState<br/>In PUBGAPIPlugin.java</p>
+</td>
+</tr>
+<tr class="tablerow0" onclick="toggleRow('N66978');">
+<td>
+<span class="priority-2">UuF</span>
+</td>
+<td>Unused field: edu.cmu.cs.cs214.plugins.data.PUBGAPIPlugin$JSONMatch$DataPt$AttrPt.shardId</td>
+</tr>
+<tr class="detailrow0">
+<td/>
+<td>
+<p id="N66978" style="display: none;">
+<a href="#UUF_UNUSED_FIELD">Bug type UUF_UNUSED_FIELD (click for details)</a>
+<br/>In class edu.cmu.cs.cs214.plugins.data.PUBGAPIPlugin$JSONMatch$DataPt$AttrPt<br/>Field edu.cmu.cs.cs214.plugins.data.PUBGAPIPlugin$JSONMatch$DataPt$AttrPt.shardId<br/>In PUBGAPIPlugin.java</p>
+</td>
+</tr>
+<tr class="tablerow1" onclick="toggleRow('N67028');">
+<td>
+<span class="priority-2">UuF</span>
+</td>
+<td>Unused field: edu.cmu.cs.cs214.plugins.data.PUBGAPIPlugin$JSONMatch$DataPt$AttrPt.stats</td>
+</tr>
+<tr class="detailrow1">
+<td/>
+<td>
+<p id="N67028" style="display: none;">
+<a href="#UUF_UNUSED_FIELD">Bug type UUF_UNUSED_FIELD (click for details)</a>
+<br/>In class edu.cmu.cs.cs214.plugins.data.PUBGAPIPlugin$JSONMatch$DataPt$AttrPt<br/>Field edu.cmu.cs.cs214.plugins.data.PUBGAPIPlugin$JSONMatch$DataPt$AttrPt.stats<br/>In PUBGAPIPlugin.java</p>
+</td>
+</tr>
+<tr class="tablerow0" onclick="toggleRow('N67078');">
+<td>
+<span class="priority-2">UuF</span>
+</td>
+<td>Unused field: edu.cmu.cs.cs214.plugins.data.PUBGAPIPlugin$JSONMatch$DataPt$AttrPt.tags</td>
+</tr>
+<tr class="detailrow0">
+<td/>
+<td>
+<p id="N67078" style="display: none;">
+<a href="#UUF_UNUSED_FIELD">Bug type UUF_UNUSED_FIELD (click for details)</a>
+<br/>In class edu.cmu.cs.cs214.plugins.data.PUBGAPIPlugin$JSONMatch$DataPt$AttrPt<br/>Field edu.cmu.cs.cs214.plugins.data.PUBGAPIPlugin$JSONMatch$DataPt$AttrPt.tags<br/>In PUBGAPIPlugin.java</p>
+</td>
+</tr>
+<tr class="tablerow1" onclick="toggleRow('N67128');">
+<td>
+<span class="priority-2">UuF</span>
+</td>
+<td>Unused field: edu.cmu.cs.cs214.plugins.data.PUBGAPIPlugin$JSONMatch$DataPt$AttrPt.titleId</td>
+</tr>
+<tr class="detailrow1">
+<td/>
+<td>
+<p id="N67128" style="display: none;">
+<a href="#UUF_UNUSED_FIELD">Bug type UUF_UNUSED_FIELD (click for details)</a>
+<br/>In class edu.cmu.cs.cs214.plugins.data.PUBGAPIPlugin$JSONMatch$DataPt$AttrPt<br/>Field edu.cmu.cs.cs214.plugins.data.PUBGAPIPlugin$JSONMatch$DataPt$AttrPt.titleId<br/>In PUBGAPIPlugin.java</p>
+</td>
+</tr>
+<tr class="tablerow0" onclick="toggleRow('N67340');">
+<td>
+<span class="priority-2">UuF</span>
+</td>
+<td>Unused field: edu.cmu.cs.cs214.plugins.data.PUBGAPIPlugin$JSONMatch$IncPt.id</td>
+</tr>
+<tr class="detailrow0">
+<td/>
+<td>
+<p id="N67340" style="display: none;">
+<a href="#UUF_UNUSED_FIELD">Bug type UUF_UNUSED_FIELD (click for details)</a>
+<br/>In class edu.cmu.cs.cs214.plugins.data.PUBGAPIPlugin$JSONMatch$IncPt<br/>Field edu.cmu.cs.cs214.plugins.data.PUBGAPIPlugin$JSONMatch$IncPt.id<br/>In PUBGAPIPlugin.java</p>
+</td>
+</tr>
+<tr class="tablerow1" onclick="toggleRow('N67589');">
+<td>
+<span class="priority-2">UuF</span>
+</td>
+<td>Unused field: edu.cmu.cs.cs214.plugins.data.PUBGAPIPlugin$JSONPlayerData$Player.attributes</td>
+</tr>
+<tr class="detailrow1">
+<td/>
+<td>
+<p id="N67589" style="display: none;">
+<a href="#UUF_UNUSED_FIELD">Bug type UUF_UNUSED_FIELD (click for details)</a>
+<br/>In class edu.cmu.cs.cs214.plugins.data.PUBGAPIPlugin$JSONPlayerData$Player<br/>Field edu.cmu.cs.cs214.plugins.data.PUBGAPIPlugin$JSONPlayerData$Player.attributes<br/>In PUBGAPIPlugin.java</p>
+</td>
+</tr>
+<tr class="tablerow0" onclick="toggleRow('N67639');">
+<td>
+<span class="priority-2">UuF</span>
+</td>
+<td>Unused field: edu.cmu.cs.cs214.plugins.data.PUBGAPIPlugin$JSONPlayerData$Player.links</td>
+</tr>
+<tr class="detailrow0">
+<td/>
+<td>
+<p id="N67639" style="display: none;">
+<a href="#UUF_UNUSED_FIELD">Bug type UUF_UNUSED_FIELD (click for details)</a>
+<br/>In class edu.cmu.cs.cs214.plugins.data.PUBGAPIPlugin$JSONPlayerData$Player<br/>Field edu.cmu.cs.cs214.plugins.data.PUBGAPIPlugin$JSONPlayerData$Player.links<br/>In PUBGAPIPlugin.java</p>
+</td>
+</tr>
+<tr class="tablerow1" onclick="toggleRow('N67689');">
+<td>
+<span class="priority-2">UuF</span>
+</td>
+<td>Unused field: edu.cmu.cs.cs214.plugins.data.PUBGAPIPlugin$JSONPlayerData$Player.type</td>
+</tr>
+<tr class="detailrow1">
+<td/>
+<td>
+<p id="N67689" style="display: none;">
+<a href="#UUF_UNUSED_FIELD">Bug type UUF_UNUSED_FIELD (click for details)</a>
+<br/>In class edu.cmu.cs.cs214.plugins.data.PUBGAPIPlugin$JSONPlayerData$Player<br/>Field edu.cmu.cs.cs214.plugins.data.PUBGAPIPlugin$JSONPlayerData$Player.type<br/>In PUBGAPIPlugin.java</p>
+</td>
+</tr>
+<tr class="tablerow0" onclick="toggleRow('N67884');">
+<td>
+<span class="priority-2">UuF</span>
+</td>
+<td>Unused field: edu.cmu.cs.cs214.plugins.data.PUBGAPIPlugin$JSONPlayerData$Player$MatchData.assets</td>
+</tr>
+<tr class="detailrow0">
+<td/>
+<td>
+<p id="N67884" style="display: none;">
+<a href="#UUF_UNUSED_FIELD">Bug type UUF_UNUSED_FIELD (click for details)</a>
+<br/>In class edu.cmu.cs.cs214.plugins.data.PUBGAPIPlugin$JSONPlayerData$Player$MatchData<br/>Field edu.cmu.cs.cs214.plugins.data.PUBGAPIPlugin$JSONPlayerData$Player$MatchData.assets<br/>In PUBGAPIPlugin.java</p>
+</td>
+</tr>
+<tr class="tablerow1" onclick="toggleRow('N67934');">
+<td>
+<span class="priority-2">UuF</span>
+</td>
+<td>Unused field: edu.cmu.cs.cs214.plugins.data.PUBGAPIPlugin$JSONPlayerData$Player$MatchData.links</td>
+</tr>
+<tr class="detailrow1">
+<td/>
+<td>
+<p id="N67934" style="display: none;">
+<a href="#UUF_UNUSED_FIELD">Bug type UUF_UNUSED_FIELD (click for details)</a>
+<br/>In class edu.cmu.cs.cs214.plugins.data.PUBGAPIPlugin$JSONPlayerData$Player$MatchData<br/>Field edu.cmu.cs.cs214.plugins.data.PUBGAPIPlugin$JSONPlayerData$Player$MatchData.links<br/>In PUBGAPIPlugin.java</p>
+</td>
+</tr>
+<tr class="tablerow0" onclick="toggleRow('N68129');">
+<td>
+<span class="priority-2">UuF</span>
+</td>
+<td>Unused field: edu.cmu.cs.cs214.plugins.data.PUBGAPIPlugin$MatchCodes$Code.type</td>
+</tr>
+<tr class="detailrow0">
+<td/>
+<td>
+<p id="N68129" style="display: none;">
+<a href="#UUF_UNUSED_FIELD">Bug type UUF_UNUSED_FIELD (click for details)</a>
+<br/>In class edu.cmu.cs.cs214.plugins.data.PUBGAPIPlugin$MatchCodes$Code<br/>Field edu.cmu.cs.cs214.plugins.data.PUBGAPIPlugin$MatchCodes$Code.type<br/>In PUBGAPIPlugin.java</p>
+</td>
+</tr>
+</table>
+<h2>
+<a name="Warnings_STYLE">Dodgy code Warnings</a>
+</h2>
+<table class="warningtable" width="100%" cellspacing="0">
+<tr class="tableheader">
+<th align="left">Code</th>
+<th align="left">Warning</th>
+</tr>
+<tr class="tablerow1" onclick="toggleRow('N68233');">
+<td>
+<span class="priority-2">DLS</span>
+</td>
+<td>Dead store to m in edu.cmu.cs.cs214.plugins.data.PluginXLS.onExtractData(String)</td>
+</tr>
+<tr class="detailrow1">
+<td/>
+<td>
+<p id="N68233" style="display: none;">
+<a href="#DLS_DEAD_LOCAL_STORE">Bug type DLS_DEAD_LOCAL_STORE (click for details)</a>
+<br/>In class edu.cmu.cs.cs214.plugins.data.PluginXLS<br/>In method edu.cmu.cs.cs214.plugins.data.PluginXLS.onExtractData(String)<br/>Local variable named m<br/>At PluginXLS.java:[line 188]</p>
+</td>
+</tr>
+<tr class="tablerow0" onclick="toggleRow('N68561');">
+<td>
+<span class="priority-2">DLS</span>
+</td>
+<td>Dead store to labels in edu.cmu.cs.cs214.plugins.display.BarChartPlugin.display(GameData)</td>
+</tr>
+<tr class="detailrow0">
+<td/>
+<td>
+<p id="N68561" style="display: none;">
+<a href="#DLS_DEAD_LOCAL_STORE">Bug type DLS_DEAD_LOCAL_STORE (click for details)</a>
+<br/>In class edu.cmu.cs.cs214.plugins.display.BarChartPlugin<br/>In method edu.cmu.cs.cs214.plugins.display.BarChartPlugin.display(GameData)<br/>Local variable named labels<br/>At BarChartPlugin.java:[line 37]</p>
+</td>
+</tr>
+<tr class="tablerow1" onclick="toggleRow('N66580');">
+<td>
+<span class="priority-2">REC</span>
+</td>
+<td>Exception is caught when Exception is not thrown in edu.cmu.cs.cs214.plugins.data.PUBGAPIPlugin.extractFromURL(String, String)</td>
+</tr>
+<tr class="detailrow1">
+<td/>
+<td>
+<p id="N66580" style="display: none;">
+<a href="#REC_CATCH_EXCEPTION">Bug type REC_CATCH_EXCEPTION (click for details)</a>
+<br/>In class edu.cmu.cs.cs214.plugins.data.PUBGAPIPlugin<br/>In method edu.cmu.cs.cs214.plugins.data.PUBGAPIPlugin.extractFromURL(String, String)<br/>At PUBGAPIPlugin.java:[line 298]</p>
+</td>
+</tr>
+<tr class="tablerow0" onclick="toggleRow('N68631');">
+<td>
+<span class="priority-2">UC</span>
+</td>
+<td>Useless object stored in variable labels of method edu.cmu.cs.cs214.plugins.display.BarChartPlugin.display(GameData)</td>
+</tr>
+<tr class="detailrow0">
+<td/>
+<td>
+<p id="N68631" style="display: none;">
+<a href="#UC_USELESS_OBJECT">Bug type UC_USELESS_OBJECT (click for details)</a>
+<br/>In class edu.cmu.cs.cs214.plugins.display.BarChartPlugin<br/>In method edu.cmu.cs.cs214.plugins.display.BarChartPlugin.display(GameData)<br/>Value labels<br/>Type String[]<br/>At BarChartPlugin.java:[line 37]</p>
+</td>
+</tr>
+<tr class="tablerow1" onclick="toggleRow('N68695');">
+<td>
+<span class="priority-1">UC</span>
+</td>
+<td>Method edu.cmu.cs.cs214.plugins.display.BarChartPlugin.display(GameData) seems to be useless</td>
+</tr>
+<tr class="detailrow1">
+<td/>
+<td>
+<p id="N68695" style="display: none;">
+<a href="#UC_USELESS_VOID_METHOD">Bug type UC_USELESS_VOID_METHOD (click for details)</a>
+<br/>In class edu.cmu.cs.cs214.plugins.display.BarChartPlugin<br/>In method edu.cmu.cs.cs214.plugins.display.BarChartPlugin.display(GameData)<br/>At BarChartPlugin.java:[line 44]</p>
+</td>
+</tr>
+</table>
+<h1>
+<a name="Details">Details</a>
+</h1>
+<h2>
+<a name="DLS_DEAD_LOCAL_STORE">DLS_DEAD_LOCAL_STORE: Dead store to local variable</a>
+</h2>
+
+<p>
+This instruction assigns a value to a local variable,
+but the value is not read or used in any subsequent instruction.
+Often, this indicates an error, because the value computed is never
+used.
+</p>
+<p>
+Note that Sun's javac compiler often generates dead stores for
+final local variables.  Because SpotBugs is a bytecode-based tool,
+there is no easy way to eliminate these false positives.
+</p>
+
+    
+<h2>
+<a name="DM_DEFAULT_ENCODING">DM_DEFAULT_ENCODING: Reliance on default encoding</a>
+</h2>
+
+<p> Found a call to a method which will perform a byte to String (or String to byte) conversion, and will assume that the default platform encoding is suitable. This will cause the application behaviour to vary between platforms. Use an alternative API and specify a charset name or Charset object explicitly.  </p>
+
+      
+<h2>
+<a name="NP_UNWRITTEN_FIELD">NP_UNWRITTEN_FIELD: Read of unwritten field</a>
+</h2>
+
+  <p> The program is dereferencing a field that does not seem to ever have a non-null value written to it.
+Unless the field is initialized via some mechanism not seen by the analysis,
+dereferencing this value will generate a null pointer exception.
+</p>
+
+    
+<h2>
+<a name="REC_CATCH_EXCEPTION">REC_CATCH_EXCEPTION: Exception is caught when Exception is not thrown</a>
+</h2>
+  
+  <p>
+  This method uses a try-catch block that catches Exception objects, but Exception is not
+  thrown within the try block, and RuntimeException is not explicitly caught.  It is a common bug pattern to
+  say try { ... } catch (Exception e) { something } as a shorthand for catching a number of types of exception
+  each of whose catch blocks is identical, but this construct also accidentally catches RuntimeException as well,
+  masking potential bugs.
+  </p>
+  <p>A better approach is to either explicitly catch the specific exceptions that are thrown,
+  or to explicitly catch RuntimeException exception, rethrow it, and then catch all non-Runtime Exceptions, as shown below:</p>
+<pre><code>try {
+    ...
+} catch (RuntimeException e) {
+    throw e;
+} catch (Exception e) {
+    ... deal with all non-runtime exceptions ...
+}
+</code></pre>
+  
+     
+<h2>
+<a name="SIC_INNER_SHOULD_BE_STATIC">SIC_INNER_SHOULD_BE_STATIC: Should be a static inner class</a>
+</h2>
+
+  <p> This class is an inner class, but does not use its embedded reference
+  to the object which created it.&nbsp; This reference makes the instances
+  of the class larger, and may keep the reference to the creator object
+  alive longer than necessary.&nbsp; If possible, the class should be
+   made static.
+</p>
+
+    
+<h2>
+<a name="UC_USELESS_VOID_METHOD">UC_USELESS_VOID_METHOD: Useless non-empty void method</a>
+</h2>
+
+<p>Our analysis shows that this non-empty void method does not actually perform any useful work.
+Please check it: probably there's a mistake in its code or its body can be fully removed.
+</p>
+<p>We are trying to reduce the false positives as much as possible, but in some cases this warning might be wrong.
+Common false-positive cases include:</p>
+<ul>
+<li>The method is intended to trigger loading of some class which may have a side effect.</li>
+<li>The method is intended to implicitly throw some obscure exception.</li>
+</ul>
+
+    
+<h2>
+<a name="UC_USELESS_OBJECT">UC_USELESS_OBJECT: Useless object created</a>
+</h2>
+
+<p>Our analysis shows that this object is useless.
+It's created and modified, but its value never go outside of the method or produce any side-effect.
+Either there is a mistake and object was intended to be used or it can be removed.</p>
+<p>This analysis rarely produces false-positives. Common false-positive cases include:</p>
+<p>- This object used to implicitly throw some obscure exception.</p>
+<p>- This object used as a stub to generalize the code.</p>
+<p>- This object used to hold strong references to weak/soft-referenced objects.</p>
+
+    
+<h2>
+<a name="URF_UNREAD_FIELD">URF_UNREAD_FIELD: Unread field</a>
+</h2>
+
+  <p> This field is never read.&nbsp; Consider removing it from the class.</p>
+
+    
+<h2>
+<a name="UUF_UNUSED_FIELD">UUF_UNUSED_FIELD: Unused field</a>
+</h2>
+
+  <p> This field is never used.&nbsp; Consider removing it from the class.</p>
+
+    
+<h2>
+<a name="UWF_UNWRITTEN_FIELD">UWF_UNWRITTEN_FIELD: Unwritten field</a>
+</h2>
+
+  <p> This field is never written.&nbsp; All reads of it will return the default
+value. Check for errors (should it have been initialized?), or remove it if it is useless.</p>
+
+    </body>
+</html>

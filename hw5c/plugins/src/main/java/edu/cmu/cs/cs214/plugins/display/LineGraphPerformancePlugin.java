@@ -15,8 +15,12 @@ import org.jfree.data.xy.XYSeries;
 import org.jfree.data.xy.XYSeriesCollection;
 
 import javax.imageio.ImageIO;
-import javax.swing.*;
-import java.awt.*;
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.SwingUtilities;
+import java.awt.BasicStroke;
+import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
@@ -31,18 +35,18 @@ import java.util.concurrent.TimeUnit;
  */
 
 public class LineGraphPerformancePlugin extends JFrame implements DisplayPlugin {
-    private static final int width = 640;
-    private static final int height = 480;
+    private static final int WIDTH = 640;
+    private static final int HEIGHT = 480;
     private static final int TWO = 2;
     private static final float THICCNESS = 2.0f;
     private static final float THICCNESS1 = 3.0f;
     private static final float THICCNESS2 = 4.0f;
-    private static final double n1 = 2.0;
-    private static final double n2 = 3.0;
-    private static final double n3 = 4.0;
-    private static final double n4 = 5.0;
-    private static final double n5 = 6.0;
-    private static final double n6 = 7.0;
+    private static final double FLOAT1 = 2.0;
+    private static final double FLOAT2 = 3.0;
+    private static final double FLOAT3 = 4.0;
+    private static final double FLOAT4 = 5.0;
+    private static final double FLOAT5 = 6.0;
+    private static final double FLOAT6 = 7.0;
 
 
     /**
@@ -63,7 +67,7 @@ public class LineGraphPerformancePlugin extends JFrame implements DisplayPlugin 
         JPanel chartPanel = new ChartPanel(chart);
         add(chartPanel, BorderLayout.CENTER);
 
-        setSize(width, height);
+        setSize(WIDTH, HEIGHT);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
     }
@@ -232,13 +236,13 @@ public class LineGraphPerformancePlugin extends JFrame implements DisplayPlugin 
         XYSeries series1 = new XYSeries("dots");
         XYSeries series2 = new XYSeries("bananas");
 
-        series1.add(n1, n2);
-        series1.add(n3,n1);
-        series1.add(n2,n4);
+        series1.add(FLOAT1, FLOAT2);
+        series1.add(FLOAT3,FLOAT1);
+        series1.add(FLOAT2,FLOAT4);
 
-        series2.add(n1,n6);
-        series2.add(n2,n5);
-        series2.add(n3, n4);
+        series2.add(FLOAT1,FLOAT6);
+        series2.add(FLOAT2,FLOAT5);
+        series2.add(FLOAT3, FLOAT4);
 
         dataset.addSeries(series1);
         dataset.addSeries(series2);
@@ -267,7 +271,7 @@ public class LineGraphPerformancePlugin extends JFrame implements DisplayPlugin 
         plot.setDomainGridlinePaint(Color.BLACK);
 
         try{
-            ChartUtils.saveChartAsJPEG(f, test, width, height);
+            ChartUtils.saveChartAsJPEG(f, test, WIDTH, HEIGHT);
             result = ImageIO.read(f);
         }catch(IOException e){
             e.printStackTrace();

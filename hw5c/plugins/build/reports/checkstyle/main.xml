@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<checkstyle version="8.7">
+<file name="/Users/kunalbarde/2.0Team28/hw5c/plugins/src/main/java/edu/cmu/cs/cs214/plugins/data/CHESScomDplugin.java">
+<error line="4" severity="error" message="Using the &apos;.*&apos; form of import should be avoided - com.google.gson.*." source="com.puppycrawl.tools.checkstyle.checks.imports.AvoidStarImportCheck"/>
+<error line="217" severity="error" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocTypeCheck"/>
+<error line="218" column="16" severity="error" message="Variable &apos;username&apos; must be private and have accessor methods." source="com.puppycrawl.tools.checkstyle.checks.design.VisibilityModifierCheck"/>
+<error line="221" severity="error" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocTypeCheck"/>
+<error line="222" column="27" severity="error" message="Variable &apos;archives&apos; must be private and have accessor methods." source="com.puppycrawl.tools.checkstyle.checks.design.VisibilityModifierCheck"/>
+<error line="224" severity="error" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocTypeCheck"/>
+<error line="225" column="20" severity="error" message="Variable &apos;url&apos; must be private and have accessor methods." source="com.puppycrawl.tools.checkstyle.checks.design.VisibilityModifierCheck"/>
+<error line="229" severity="error" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocTypeCheck"/>
+<error line="230" column="20" severity="error" message="Variable &apos;games&apos; must be private and have accessor methods." source="com.puppycrawl.tools.checkstyle.checks.design.VisibilityModifierCheck"/>
+<error line="232" severity="error" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocTypeCheck"/>
+<error line="233" column="24" severity="error" message="Variable &apos;white&apos; must be private and have accessor methods." source="com.puppycrawl.tools.checkstyle.checks.design.VisibilityModifierCheck"/>
+<error line="234" column="24" severity="error" message="Variable &apos;black&apos; must be private and have accessor methods." source="com.puppycrawl.tools.checkstyle.checks.design.VisibilityModifierCheck"/>
+<error line="235" column="17" severity="error" message="Name &apos;move_by&apos; must match pattern &apos;^[a-z][a-zA-Z0-9]*$&apos;." source="com.puppycrawl.tools.checkstyle.checks.naming.MemberNameCheck"/>
+<error line="235" column="17" severity="error" message="Variable &apos;move_by&apos; must be private and have accessor methods." source="com.puppycrawl.tools.checkstyle.checks.design.VisibilityModifierCheck"/>
+<error line="236" column="17" severity="error" message="Name &apos;end_time&apos; must match pattern &apos;^[a-z][a-zA-Z0-9]*$&apos;." source="com.puppycrawl.tools.checkstyle.checks.naming.MemberNameCheck"/>
+<error line="236" column="17" severity="error" message="Variable &apos;end_time&apos; must be private and have accessor methods." source="com.puppycrawl.tools.checkstyle.checks.design.VisibilityModifierCheck"/>
+<error line="237" column="20" severity="error" message="Name &apos;time_class&apos; must match pattern &apos;^[a-z][a-zA-Z0-9]*$&apos;." source="com.puppycrawl.tools.checkstyle.checks.naming.MemberNameCheck"/>
+<error line="237" column="20" severity="error" message="Variable &apos;time_class&apos; must be private and have accessor methods." source="com.puppycrawl.tools.checkstyle.checks.design.VisibilityModifierCheck"/>
+<error line="239" severity="error" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocTypeCheck"/>
+<error line="240" column="21" severity="error" message="Variable &apos;rating&apos; must be private and have accessor methods." source="com.puppycrawl.tools.checkstyle.checks.design.VisibilityModifierCheck"/>
+<error line="241" column="24" severity="error" message="Variable &apos;result&apos; must be private and have accessor methods." source="com.puppycrawl.tools.checkstyle.checks.design.VisibilityModifierCheck"/>
+<error line="242" column="24" severity="error" message="Variable &apos;username&apos; must be private and have accessor methods." source="com.puppycrawl.tools.checkstyle.checks.design.VisibilityModifierCheck"/>
+<error line="247" severity="error" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocTypeCheck"/>
+<error line="248" column="24" severity="error" message="Variable &apos;modes&apos; must be private and have accessor methods." source="com.puppycrawl.tools.checkstyle.checks.design.VisibilityModifierCheck"/>
+<error line="250" severity="error" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocTypeCheck"/>
+<error line="251" column="17" severity="error" message="Variable &apos;id&apos; must be private and have accessor methods." source="com.puppycrawl.tools.checkstyle.checks.design.VisibilityModifierCheck"/>
+<error line="252" column="20" severity="error" message="Variable &apos;name&apos; must be private and have accessor methods." source="com.puppycrawl.tools.checkstyle.checks.design.VisibilityModifierCheck"/>
+</file>
+<file name="/Users/kunalbarde/2.0Team28/hw5c/plugins/src/main/java/edu/cmu/cs/cs214/plugins/data/DotaAPIPlugin.java">
+</file>
+<file name="/Users/kunalbarde/2.0Team28/hw5c/plugins/src/main/java/edu/cmu/cs/cs214/plugins/data/OPGGHtmlPlugin.java">
+</file>
+<file name="/Users/kunalbarde/2.0Team28/hw5c/plugins/src/main/java/edu/cmu/cs/cs214/plugins/data/PUBGAPIPlugin.java">
+<error line="255" severity="error" message="Line is longer than 160 characters (found 218)." source="com.puppycrawl.tools.checkstyle.checks.sizes.LineLengthCheck"/>
+</file>
+<file name="/Users/kunalbarde/2.0Team28/hw5c/plugins/src/main/java/edu/cmu/cs/cs214/plugins/data/PluginXLS.java">
+</file>
+<file name="/Users/kunalbarde/2.0Team28/hw5c/plugins/src/main/java/edu/cmu/cs/cs214/plugins/display/BarChartPlugin.java">
+<error line="17" severity="error" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocTypeCheck"/>
+<error line="46" severity="error" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocTypeCheck"/>
+<error line="52" column="9" severity="error" message="Redundant &apos;public&apos; modifier." source="com.puppycrawl.tools.checkstyle.checks.modifier.RedundantModifierCheck"/>
+</file>
+<file name="/Users/kunalbarde/2.0Team28/hw5c/plugins/src/main/java/edu/cmu/cs/cs214/plugins/display/LineGraphPerformancePlugin.java">
+</file>
+<file name="/Users/kunalbarde/2.0Team28/hw5c/plugins/src/main/java/edu/cmu/cs/cs214/plugins/display/MatchDisplayPlugin.java">
+</file>
+<file name="/Users/kunalbarde/2.0Team28/hw5c/plugins/src/main/java/edu/cmu/cs/cs214/plugins/display/PieChartDisplayP.java">
+<error line="14" severity="error" message="Using the &apos;.*&apos; form of import should be avoided - org.knowm.xchart.*." source="com.puppycrawl.tools.checkstyle.checks.imports.AvoidStarImportCheck"/>
+<error line="16" severity="error" message="Using the &apos;.*&apos; form of import should be avoided - javax.swing.*." source="com.puppycrawl.tools.checkstyle.checks.imports.AvoidStarImportCheck"/>
+<error line="18" column="1" severity="error" message="Duplicate import to line 8 - java.util.ArrayList." source="com.puppycrawl.tools.checkstyle.checks.imports.RedundantImportCheck"/>
+<error line="19" column="1" severity="error" message="Duplicate import to line 9 - java.util.List." source="com.puppycrawl.tools.checkstyle.checks.imports.RedundantImportCheck"/>
+<error line="23" severity="error" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocTypeCheck"/>
+<error line="31" column="12" severity="error" message="Name &apos;IMAGE_DIR&apos; must match pattern &apos;^[a-z][a-zA-Z0-9]*$&apos;." source="com.puppycrawl.tools.checkstyle.checks.naming.MemberNameCheck"/>
+<error line="31" column="12" severity="error" message="Variable &apos;IMAGE_DIR&apos; must be private and have accessor methods." source="com.puppycrawl.tools.checkstyle.checks.design.VisibilityModifierCheck"/>
+<error line="50" column="16" severity="error" message="Name &apos;win_rate&apos; must match pattern &apos;^[a-z][a-zA-Z0-9]*$&apos;." source="com.puppycrawl.tools.checkstyle.checks.naming.LocalVariableNameCheck"/>
+<error line="51" column="16" severity="error" message="Name &apos;u_name&apos; must match pattern &apos;^[a-z][a-zA-Z0-9]*$&apos;." source="com.puppycrawl.tools.checkstyle.checks.naming.LocalVariableNameCheck"/>
+</file>
+<file name="/Users/kunalbarde/2.0Team28/hw5c/plugins/src/main/java/edu/cmu/cs/cs214/plugins/display/RatingDisplayPlugin.java">
+</file>
+</checkstyle>
