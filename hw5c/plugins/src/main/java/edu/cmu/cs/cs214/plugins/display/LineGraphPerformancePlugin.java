@@ -25,7 +25,7 @@ import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 /**
- * Plugin to show kill/assist/death/win data over time
+ * Plugin to show kill/assist/death data over time
  * Visualizes player performance based on kda
  * @author kunalbarde
  */
@@ -100,7 +100,6 @@ public class LineGraphPerformancePlugin extends JFrame implements DisplayPlugin 
         XYSeries killData = new XYSeries("kills");
         XYSeries deathData = new XYSeries("deaths");
         XYSeries assistData = new XYSeries("assists");
-        XYSeries winData = new XYSeries("wins");
 
 
 
@@ -166,9 +165,9 @@ public class LineGraphPerformancePlugin extends JFrame implements DisplayPlugin 
         dataSet.addSeries(deathData);
         dataSet.addSeries(assistData);
 
-        String chartTitle = "Kill/Death/Assist/Win Over Time";
+        String chartTitle = "Kill/Death/Assist Over Time";
         String xAxisLabel = "Time";
-        String yAxisLabel = "Number of kills/deaths/assists/wins";
+        String yAxisLabel = "Number of kills/deaths/assists";
 
         JFreeChart lineGraph = ChartFactory.createXYLineChart(chartTitle, xAxisLabel, yAxisLabel, dataSet);
 
