@@ -3,4 +3,11 @@
 # with one plugin per line.
 edu.cmu.cs.cs214.plugins.display.RatingDisplayPlugin
 edu.cmu.cs.cs214.plugins.display.MatchDisplayPlugin
+
+# Team 28's data plugins
+# Neil
+edu.cmu.cs.cs214.plugins.display.BarChartPlugin
+# Kunal
+edu.cmu.cs.cs214.plugins.display.LineGraphPerformancePlugin
+#Javier
 edu.cmu.cs.cs214.plugins.display.PieChartDisplayP

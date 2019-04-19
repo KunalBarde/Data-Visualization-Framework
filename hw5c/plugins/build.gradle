@@ -34,6 +34,9 @@ dependencies {
     compile 'com.google.code.gson:gson:2.8.5'
     compile group: 'org.knowm.xchart', name: 'xchart', version: '3.5.4'
     compile 'org.jsoup:jsoup:1.11.3'
+    compile 'org.apache.poi:poi:4.0.1'
+    compile 'org.apache.poi:poi-ooxml:4.0.1'
+    compile group: 'org.jfree', name: 'jfreechart', version: '1.5.0'
 }
 
 checkstyle {
