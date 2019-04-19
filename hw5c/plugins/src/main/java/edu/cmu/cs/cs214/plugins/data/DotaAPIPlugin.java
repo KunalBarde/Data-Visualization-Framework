@@ -29,7 +29,7 @@ import java.util.Scanner;
  * and provides access to the framework for further use
  * Workflow:
  * - extract player
- * - extract list of player's recent matches(20)
+ * - extract list of player's recent archives(20)
  * - extract each recent match's detailed data
  * - create MatchPlayerInfo, Match, and GameData class instance
  * - return GameData instance
@@ -122,7 +122,7 @@ public class DotaAPIPlugin implements DataPlugin {
     private static final String ID_URL = "/search/";
     private static final String ID_QUERY = "&q=";
     private static final String PLAYER_URL = "/players/";
-    private static final String MATCHES_URL = "/matches/";
+    private static final String MATCHES_URL = "/archives/";
     private static final String HEROES_URL = "/heroes";
     private static final String RECENT_MATCHES_URL = "/recentMatches";
 
@@ -286,7 +286,7 @@ public class DotaAPIPlugin implements DataPlugin {
 
     private void extractRecentMatches(String playerId) throws IllegalArgumentException {
         String urlString = BASE_URL + PLAYER_URL + playerId + RECENT_MATCHES_URL + KEY_URL + apiKey;
-        String jsonString = "{\"matches\":" + extractFromUrl(urlString, RECENT_PARSE_FAIL_MSG) + "}";
+        String jsonString = "{\"archives\":" + extractFromUrl(urlString, RECENT_PARSE_FAIL_MSG) + "}";
         try {
             recent = gson.fromJson(jsonString, JSONRecent.class);
         }

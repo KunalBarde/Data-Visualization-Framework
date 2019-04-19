@@ -97,7 +97,7 @@ public class OPGGHtmlPlugin implements DataPlugin {
     }
 
     /**
-     * Comparator class that is used to decide order between matches
+     * Comparator class that is used to decide order between archives
      */
     private static class DESCENDING implements Comparator<Match>, Serializable {
         @Override
