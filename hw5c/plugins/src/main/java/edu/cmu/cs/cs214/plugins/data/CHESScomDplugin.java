@@ -35,24 +35,14 @@ public class CHESScomDplugin implements DataPlugin {
 
     private static final String BASE_URL = "https://api.chess.com/pub/player/";
 
-    private static final String JSON_DIR = System.getProperty("user.dir").contains("plugins") ?
-            "src/main/resources/json/" : "plugins/src/main/resources/json/";
-    private static final String MONTH_DATES = "010203040506070809101112";
-    //private static final String JSON_GAME_MODE = "dota_game_mode.json";
-
     // Chess API Endpoints
     private static final String GAMES = "/games";
     private static final String ARCHIVES = "/archives";
-    private static final String PLAYER_URL = "/stats";
 
     // Messages
     private static final String NO_PLAYER_MSG = "Player doesn't exist";
     private static final String ID_PARSE_FAIL_MSG = "Error occurred while parsing account ID data";
-    private static final String PLAYER_PARSE_FAIL_MSG = "Error occurred while parsing player data";
     private static final String RECENT_PARSE_FAIL_MSG = "Error occurred while parsing recent match data";
-    private static final String MATCH_PARSE_FAIL_MSG = "Error occurred while parsing match data";
-    private static final String HERO_PARSE_FAIL_MSG = "Error occurred while parsing hero data";
-    private static final String MODE_PARSE_FAIL_MSG = "Error occurred while parsing game mode data";
     // JSON Parsing
 
     private final Gson gson;
@@ -128,14 +118,12 @@ public class CHESScomDplugin implements DataPlugin {
             participants.add(new MatchPlayerInfo(whiteplayer.username, "white", whiteplayer.rating, 0, 0, isWhite));
             participants.add(new MatchPlayerInfo(blackplayer.username, "black", blackplayer.rating, 0, 0, !isWhite));
 
-            int win = 0;
             boolean wini = false;
-            System.out.println(whiteplayer.result + " " + whiteplayer.username);
-            if((whiteplayer.result == "win" && whiteplayer.username == playerId)
-                || (blackplayer.result == "win" && blackplayer.username == playerId))
+            if((whiteplayer.result.equals("win") && whiteplayer.username.equals(playerId))
+                || (blackplayer.result.equals("win") && blackplayer.username.equals(playerId)))
             {
-                win = 1;
                 wini = true;
+                System.out.println("hooray");
             }
 
             // Create Match class instance
@@ -146,10 +134,14 @@ public class CHESScomDplugin implements DataPlugin {
             matches.add(match);
 
             // Accumulate kills, deaths, assists, wins, losses to later calculate player average
-            kills += win;
-            deaths += 1- win;
-            wins += win;
-            losses += 1-win;
+            if(wini) {
+                kills += 1;
+                wins += 1;
+            }
+            else {
+                deaths += 1;
+                losses += 1;
+            }
         }
 
         // Get player's average KDA
@@ -161,6 +153,7 @@ public class CHESScomDplugin implements DataPlugin {
         int level = rating;
 
         // Create GameData class instance
+        System.out.println(wins + " loss; " + losses);
         GameData gameData = new GameData(playerId, level,
                 kills, deaths, assists, wins, losses, matches);
 
