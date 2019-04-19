@@ -9,3 +9,5 @@ edu.cmu.cs.cs214.plugins.data.DotaAPIPlugin
 edu.cmu.cs.cs214.plugins.data.PUBGAPIPlugin
 # Javier
 edu.cmu.cs.cs214.plugins.data.CHESScomDplugin
+# Kunal
+edu.cmu.cs.cs214.plugins.data.PluginXLS
