@@ -138,7 +138,7 @@ public class PUBGAPIPlugin implements DataPlugin {
     private String apiKey;
 
     private static final String PLAYER_FILTER = "/players?filter[playerNames]=";
-    private static final String MATCH_FILTER = "/archives/";
+    private static final String MATCH_FILTER = "/matches/";
 
     private JSONPlayerData playerData;
     private final Gson gson = new Gson();
@@ -297,6 +297,7 @@ public class PUBGAPIPlugin implements DataPlugin {
                 throw new IllegalArgumentException(failMsg);
             }
         } catch (Exception e) {
+
             throw new IllegalArgumentException(failMsg);
         }
     }
